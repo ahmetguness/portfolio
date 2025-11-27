@@ -1,0 +1,7 @@
+<svg width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="320" height="320" rx="8" fill="#112240"/>
+    <rect x="1" y="1" width="318" height="318" rx="7" stroke="#64FFDA" stroke-width="2"/>
+    <text fill="#8892B0" font-family="Space Mono, monospace" font-size="24" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+        dummy_image.svg
+    </text>
+</svg>
