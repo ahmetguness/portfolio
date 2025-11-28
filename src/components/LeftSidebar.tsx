@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 
 const socialLinks = [
-    { icon: <FiGithub />, url: '#' },
-    { icon: <FiLinkedin />, url: '#' },
-    { icon: <FiTwitter />, url: '#' },
+    { icon: <FiGithub />, url: 'https://github.com/ahmetguness' },
+    { icon: <FiLinkedin />, url: 'https://www.linkedin.com/in/ahmet-g%C3%BCne%C5%9F-52381b27a/' },
+    { icon: <FiMail />, url: 'mailto:ahmetgunes.ceng@gmail.com' },
 ];
 
 const LeftSidebar = () => {

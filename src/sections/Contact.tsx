@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useContactSection } from '../data/ContactSectionContext';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -19,6 +20,8 @@ const itemVariants = {
 };
 
 const Contact = () => {
+  const { contactSectionContent } = useContactSection();
+
   return (
     <motion.div
       id="contact"
@@ -29,28 +32,27 @@ const Contact = () => {
       viewport={{ once: true, amount: 0.3 }}
     >
       <motion.p variants={itemVariants} className="font-mono text-accent-cyan mb-4">
-        04. What's Next?
+        {contactSectionContent.preTitle}
       </motion.p>
       <motion.h2
         variants={itemVariants}
         className="text-4xl md:text-5xl font-bold text-light-gray mb-4"
       >
-        Get In Touch
+        {contactSectionContent.title}
       </motion.h2>
       <motion.p
         variants={itemVariants}
         className="max-w-2xl mx-auto text-mid-gray mb-10"
       >
-        Although I’m not currently looking for any new opportunities, my inbox is always open.
-        Whether you have a question or just want to say hi, I’ll try my best to get back to you!
+        {contactSectionContent.paragraph}
       </motion.p>
       <motion.div variants={itemVariants}>
         <a
-          href="mailto:placeholder@example.com"
+          href={`mailto:${contactSectionContent.email}`}
           className="font-mono text-lg text-accent-cyan border border-accent-cyan rounded px-8 py-5
                      hover:bg-accent-cyan/10 transition-colors duration-300"
         >
-          Say Hello
+          {contactSectionContent.buttonText}
         </a>
       </motion.div>
     </motion.div>

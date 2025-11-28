@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/SectionTitle';
+import { useAbout } from '../data/AboutContext';
 
 const technologies = [
   'JavaScript (ES6+)',
@@ -12,6 +13,9 @@ const technologies = [
 ];
 
 const About = () => {
+  const { aboutText } = useAbout();
+  const paragraphs = aboutText.split('\n\n');
+
   return (
     <motion.div 
       className="min-h-screen py-24"
@@ -30,17 +34,9 @@ const About = () => {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <p>
-            Hello! I'm Ahmet, a creative developer with a passion for bridging the gap
-            between design and technology. My journey into web development started back in 2020
-            when I decided to build a custom dashboard for a game I loved — turns out hacking
-            together a UI taught me a lot about HTML & CSS!
-          </p>
-          <p>
-            Fast-forward to today, I've had the privilege of working at a creative agency, a start-up,
-            and a huge corporation. My main focus these days is building accessible, inclusive products
-            and digital experiences for a variety of clients.
-          </p>
+          {paragraphs.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
           <p>Here are a few technologies I’ve been working with recently:</p>
           <ul className="grid grid-cols-2 gap-x-8 gap-y-2 font-mono text-sm">
             {technologies.map((tech) => (
