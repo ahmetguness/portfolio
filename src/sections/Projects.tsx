@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/SectionTitle';
 import ProjectCard from '../components/ProjectCard';
-import { projectsData } from '../data/projects'; // Import centralized data
+import { useProjects } from '../data/ProjectContext';
+import { useProjectsSection } from '../data/ProjectsSectionContext';
 import { Link } from 'react-router-dom';
 
 const containerVariants = {
@@ -16,12 +17,15 @@ const containerVariants = {
 };
 
 const Projects = () => {
+  const { projects } = useProjects();
+  const { projectsSectionContent } = useProjectsSection();
+
   // Show only the first 3 projects on the homepage
-  const featuredProjects = projectsData.slice(0, 3);
+  const featuredProjects = projects.slice(0, 3);
 
   return (
     <div className="min-h-screen py-24">
-      <SectionTitle number="02" title="Some Things I've Built" />
+      <SectionTitle number="02" title={projectsSectionContent.title} />
       <motion.div 
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         variants={containerVariants}
@@ -45,7 +49,7 @@ const Projects = () => {
           className="font-mono text-accent-cyan border border-accent-cyan rounded px-8 py-4
                      hover:bg-accent-cyan/10 transition-colors duration-300"
         >
-          View All Projects
+          {projectsSectionContent.buttonText}
         </Link>
       </motion.div>
     </div>

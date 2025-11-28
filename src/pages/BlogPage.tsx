@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { postsData } from '../data/blog';
+import { useBlog } from '../data/BlogContext';
 import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
 
@@ -24,6 +24,8 @@ const itemVariants = {
 };
 
 const BlogPage = () => {
+    const { posts } = useBlog();
+
     return (
         <motion.div 
             className="py-24"
@@ -40,7 +42,7 @@ const BlogPage = () => {
                 initial="hidden"
                 animate="visible"
             >
-                {postsData.map((post) => (
+                {posts.map((post) => (
                     <motion.div
                         key={post.slug}
                         variants={itemVariants}

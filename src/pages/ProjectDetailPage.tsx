@@ -1,12 +1,13 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { projectsData } from '../data/projects';
+import { useProjects } from '../data/ProjectContext';
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 
 const ProjectDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const project = projectsData.find(p => p.slug === slug);
+  const { projects } = useProjects();
+  const project = projects.find(p => p.slug === slug);
 
   if (!project) {
     return <Navigate to="/404" replace />;

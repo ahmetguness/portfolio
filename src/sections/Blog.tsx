@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/SectionTitle';
 import { FiArrowRight } from 'react-icons/fi';
-import { postsData } from '../data/blog';
+import { useBlog } from '../data/BlogContext';
+import { useBlogSection } from '../data/BlogSectionContext';
 import { Link } from 'react-router-dom';
 
 const containerVariants = {
@@ -25,11 +26,13 @@ const itemVariants = {
 };
 
 const Blog = () => {
-  const featuredPosts = postsData.slice(0, 3);
+  const { posts } = useBlog();
+  const { blogSectionContent } = useBlogSection();
+  const featuredPosts = posts.slice(0, 3);
 
   return (
     <div className="min-h-screen py-24">
-      <SectionTitle number="03" title="Writing & Articles" />
+      <SectionTitle number="03" title={blogSectionContent.title} />
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -88,7 +91,7 @@ const Blog = () => {
           className="font-mono text-accent-cyan border border-accent-cyan rounded px-8 py-4
                      hover:bg-accent-cyan/10 transition-colors duration-300"
         >
-          View All Posts
+          {blogSectionContent.buttonText}
         </Link>
       </motion.div>
     </div>

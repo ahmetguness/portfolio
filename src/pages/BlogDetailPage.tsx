@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { postsData } from '../data/blog';
+import { useBlog } from '../data/BlogContext';
 import { motion } from 'framer-motion';
 
 // A simple component to render pseudo-markdown
@@ -43,10 +43,10 @@ const MarkdownRenderer: React.FC<{ content: string }> = ({ content }) => {
     );
 };
 
-
 const BlogDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const post = postsData.find(p => p.slug === slug);
+  const { posts } = useBlog();
+  const post = posts.find(p => p.slug === slug);
 
   if (!post) {
     return <Navigate to="/404" replace />;

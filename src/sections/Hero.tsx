@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useHero } from '../data/HeroContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -25,6 +26,8 @@ const itemVariants = {
 };
 
 const Hero = () => {
+  const { heroContent } = useHero();
+
   return (
     <motion.div
       variants={containerVariants}
@@ -33,30 +36,36 @@ const Hero = () => {
       className="min-h-screen flex flex-col justify-center"
     >
       <motion.p variants={itemVariants} className="text-accent-cyan font-mono text-lg mb-4">
-        Hi, my name is
+        {heroContent.line1}
       </motion.p>
       
       <motion.h1 variants={itemVariants} className="text-4xl md:text-7xl font-bold text-light-gray mb-2">
-        Ahmet.
+        {heroContent.name}
       </motion.h1>
       
       <motion.h2 variants={itemVariants} className="text-4xl md:text-7xl font-bold text-mid-gray mb-8">
-        I build things for the web.
+        {heroContent.line2}
       </motion.h2>
       
       <motion.p variants={itemVariants} className="max-w-xl text-mid-gray mb-10">
-        I'm a frontend engineer specializing in building (and occasionally designing)
-        exceptional digital experiences. Currently, I’m focused on building accessible,
-        human-centered products.
+        {heroContent.description}
       </motion.p>
       
-      <motion.div variants={itemVariants}>
+      <motion.div variants={itemVariants} className="flex space-x-4">
         <a
           href="#contact"
           className="font-mono text-accent-cyan border border-accent-cyan rounded px-8 py-4
                      hover:bg-accent-cyan/10 transition-colors duration-300"
         >
-          Get In Touch
+          {heroContent.buttonText}
+        </a>
+        <a
+          href="/cv.pdf"
+          download
+          className="font-mono text-accent-cyan border border-accent-cyan rounded px-8 py-4
+                     hover:bg-accent-cyan/10 transition-colors duration-300"
+        >
+          {heroContent.cvButtonText}
         </a>
       </motion.div>
     </motion.div>

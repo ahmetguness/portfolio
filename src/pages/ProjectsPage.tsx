@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { projectsData } from '../data/projects';
+import { useProjects } from '../data/ProjectContext';
 import ProjectCard from '../components/ProjectCard';
 
 const containerVariants = {
@@ -14,6 +14,8 @@ const containerVariants = {
 };
 
 const ProjectsPage = () => {
+  const { projects } = useProjects();
+
   return (
     <motion.div 
         className="py-24"
@@ -31,7 +33,7 @@ const ProjectsPage = () => {
         initial="hidden"
         animate="visible"
       >
-        {projectsData.map((project) => (
+        {projects.map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}
       </motion.div>
