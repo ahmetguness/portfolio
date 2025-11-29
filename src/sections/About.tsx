@@ -59,7 +59,7 @@ const About = () => {
             <div className="absolute inset-0 bg-accent-cyan/10 border-2 border-accent-cyan rounded-md z-0 transform group-hover:translate-x-3 group-hover:translate-y-3 transition-transform duration-300"></div>
             <div className="absolute inset-0 bg-space-dark rounded-md z-10 overflow-hidden">
               <img 
-                src="/src/assets/dummy_image.svg" 
+                src="/src/assets/gifs/main_gif.gif" 
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
