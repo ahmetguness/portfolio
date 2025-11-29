@@ -1,14 +1,5 @@
 import dummyImage from '../assets/dummy_image.jpg';
-
-export interface Post {
-    slug: string;
-    date: string;
-    title: string;
-    tags: string[];
-    url: string;
-    image: string;
-    content: string; // Markdown content
-}
+import { Post } from '../types/blog';
 
 export const postsData: Post[] = [
   {

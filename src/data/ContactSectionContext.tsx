@@ -1,17 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-
-interface ContactSectionContent {
-  preTitle: string;
-  title: string;
-  paragraph: string;
-  buttonText: string;
-  email: string;
-}
-
-interface ContactSectionContextType {
-  contactSectionContent: ContactSectionContent;
-  setContactSectionContent: (content: ContactSectionContent) => void;
-}
+import { ContactSectionContent, ContactSectionContextType } from '../types/contact';
 
 const contactSectionInitialState: ContactSectionContent = {
   preTitle: "04. What's Next?",

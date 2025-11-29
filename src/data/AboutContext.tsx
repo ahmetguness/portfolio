@@ -1,9 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-
-interface AboutContextType {
-  aboutText: string;
-  setAboutText: (text: string) => void;
-}
+import { AboutContextType } from '../types/about';
 
 const aboutMeInitialState = `Hello! I'm Ahmet, a creative developer with a passion for bridging the gap
 between design and technology. My journey into web development started back in 2020

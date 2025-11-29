@@ -1,12 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { postsData, Post } from './blog';
-
-interface BlogContextType {
-  posts: Post[];
-  addPost: (post: Post) => void;
-  deletePost: (slug: string) => void;
-  updatePost: (slug: string, post: Post) => void;
-}
+import { postsData } from './blog';
+import { Post, BlogContextType } from '../types/blog';
 
 const BlogContext = createContext<BlogContextType | undefined>(undefined);
 

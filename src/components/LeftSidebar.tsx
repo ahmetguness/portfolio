@@ -1,12 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { socialLinks as allSocials } from '../data/socials';
 
-const socialLinks = [
-    { icon: <FiGithub />, url: 'https://github.com/ahmetguness' },
-    { icon: <FiLinkedin />, url: 'https://www.linkedin.com/in/ahmet-g%C3%BCne%C5%9F-52381b27a/' },
-    { icon: <FiMail />, url: 'mailto:ahmetgunes.ceng@gmail.com' },
-];
+const socialLinks = allSocials.filter(link => ['GitHub', 'LinkedIn', 'Email'].includes(link.name));
 
 const LeftSidebar = () => {
     return (
@@ -17,12 +13,13 @@ const LeftSidebar = () => {
             transition={{ duration: 0.5, delay: 1.5 }}
         >
             <div className="flex flex-col items-center space-y-6">
-                {socialLinks.map((link, index) => (
+                {socialLinks.map((link) => (
                     <motion.a 
-                        key={index} 
+                        key={link.url} 
                         href={link.url} 
                         target="_blank" 
-                        rel="noopener noreferrer" 
+                        rel="noopener noreferrer"
+                        aria-label={link.name}
                         className="text-2xl text-mid-gray hover:text-accent-cyan"
                         whileHover={{ y: -3, scale: 1.1 }}
                         transition={{ duration: 0.2 }}

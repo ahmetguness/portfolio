@@ -1,12 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi';
+import { socialLinks as allSocials } from '../data/socials';
 
-const socialLinks = [
-  { icon: <FiGithub />, url: '#' },
-  { icon: <FiLinkedin />, url: '#' },
-  { icon: <FiTwitter />, url: '#' },
-];
+const socialLinks = allSocials.filter(link => ['GitHub', 'LinkedIn', 'Twitter'].includes(link.name));
 
 const Footer = () => {
   return (
@@ -19,8 +15,15 @@ const Footer = () => {
     >
       <div className="container mx-auto px-6 flex flex-col items-center justify-center">
         <div className="flex space-x-6 mb-4 md:hidden">
-            {socialLinks.map((link, index) => (
-                <a key={index} href={link.url} target="_blank" rel="noopener noreferrer" className="text-2xl text-mid-gray hover:text-accent-cyan transform hover:-translate-y-1 transition-all duration-300">
+            {socialLinks.map((link) => (
+                <a 
+                  key={link.url} 
+                  href={link.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  aria-label={link.name}
+                  className="text-2xl text-mid-gray hover:text-accent-cyan transform hover:-translate-y-1 transition-all duration-300"
+                >
                     {link.icon}
                 </a>
             ))}

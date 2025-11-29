@@ -2,62 +2,89 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { Project } from '../data/projects';
+import { Project } from '../types/project';
 
+/**
+ * Props for the IconLink component.
+ */
+interface IconLinkProps {
+  href: string;
+  icon: React.ReactElement;
+  ariaLabel: string;
+}
+
+/**
+ * A reusable component for rendering an icon link.
+ * It handles external link attributes and hover effects.
+ */
+const IconLink: React.FC<IconLinkProps> = ({ href, icon, ariaLabel }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={ariaLabel}
+    className="text-mid-gray transition-colors hover:text-accent-cyan"
+  >
+    {icon}
+  </a>
+);
+
+/**
+ * Props for the ProjectCard component.
+ * It uses the shared 'Project' type, promoting type consistency.
+ */
 interface ProjectCardProps {
   project: Project;
 }
 
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' }
+    transition: { duration: 0.5, ease: 'easeOut' },
   },
 };
 
+/**
+ * A card component to display a summary of a project.
+ * It features hover animations and links to the project page, GitHub, and live demo.
+ * Follows a clean structure by using sub-components like IconLink.
+ */
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const { slug, title, description, techStack, githubUrl, liveUrl, image } = project;
 
   return (
     <motion.div
       variants={cardVariants}
-      className="bg-card-blue rounded-md shadow-lg p-6 flex flex-col h-full
-                 transition-transform duration-300"
-      whileHover={{ 
+      className="group flex h-full flex-col rounded-md bg-card-blue p-6 shadow-lg transition-transform duration-300"
+      whileHover={{
         y: -8,
-        boxShadow: "0 10px 15px -3px rgba(100, 255, 218, 0.1), 0 4px 6px -2px rgba(100, 255, 218, 0.05)"
+        boxShadow: '0 10px 15px -3px rgba(100, 255, 218, 0.1), 0 4px 6px -2px rgba(100, 255, 218, 0.05)',
       }}
     >
       <Link to={`/projects/${slug}`} className="mb-4 block">
-        <img src={image} alt={title} className="rounded-md object-cover w-full h-48" />
+        <img src={image} alt={title} className="h-48 w-full rounded-md object-cover" />
       </Link>
-      <header className="flex justify-between items-center mb-4">
-        <h3 className="text-xl font-bold text-light-gray group-hover:text-accent-cyan transition-colors">
+      <header className="mb-4 flex items-center justify-between">
+        <h3 className="text-xl font-bold text-light-gray transition-colors group-hover:text-accent-cyan">
           <Link to={`/projects/${slug}`}>{title}</Link>
         </h3>
         <div className="flex space-x-4">
           {githubUrl && (
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="text-mid-gray hover:text-accent-cyan transition-colors" aria-label="GitHub Link">
-              <FiGithub size={22} />
-            </a>
+            <IconLink href={githubUrl} icon={<FiGithub size={22} />} ariaLabel="GitHub Link" />
           )}
           {liveUrl && (
-            <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="text-mid-gray hover:text-accent-cyan transition-colors" aria-label="Live Demo Link">
-              <FiExternalLink size={22} />
-            </a>
+            <IconLink href={liveUrl} icon={<FiExternalLink size={22} />} ariaLabel="Live Demo Link" />
           )}
         </div>
       </header>
-      
-      <p className="text-mid-gray flex-grow mb-4">
-        {description}
-      </p>
+
+      <p className="mb-4 flex-grow text-mid-gray">{description}</p>
 
       <footer className="mt-auto">
-        <ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-mono text-mid-gray">
-          {techStack.map(tech => (
+        <ul className="flex flex-wrap gap-x-4 gap-y-2 font-mono text-sm text-mid-gray">
+          {techStack.map((tech) => (
             <li key={tech}>{tech}</li>
           ))}
         </ul>
