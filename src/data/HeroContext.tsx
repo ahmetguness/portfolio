@@ -1,18 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-
-interface HeroContent {
-  line1: string;
-  name: string;
-  line2: string;
-  description: string;
-  buttonText: string;
-  cvButtonText: string;
-}
-
-interface HeroContextType {
-  heroContent: HeroContent;
-  setHeroContent: (content: HeroContent) => void;
-}
+import { HeroContent, HeroContextType } from '../types/hero';
 
 const heroInitialState: HeroContent = {
   line1: 'Hi, my name is',

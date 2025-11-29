@@ -1,14 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-
-interface BlogSectionContent {
-  title: string;
-  buttonText: string;
-}
-
-interface BlogSectionContextType {
-  blogSectionContent: BlogSectionContent;
-  setBlogSectionContent: (content: BlogSectionContent) => void;
-}
+import { BlogSectionContent, BlogSectionContextType } from '../types/blog';
 
 const blogSectionInitialState: BlogSectionContent = {
   title: "Writing & Articles",

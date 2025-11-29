@@ -1,14 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-
-interface ProjectsSectionContent {
-  title: string;
-  buttonText: string;
-}
-
-interface ProjectsSectionContextType {
-  projectsSectionContent: ProjectsSectionContent;
-  setProjectsSectionContent: (content: ProjectsSectionContent) => void;
-}
+import { ProjectsSectionContent, ProjectsSectionContextType } from '../types/project';
 
 const projectsSectionInitialState: ProjectsSectionContent = {
   title: "Some Things I've Built",

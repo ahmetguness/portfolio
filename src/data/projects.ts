@@ -1,15 +1,5 @@
+import { Project } from '../types/project';
 import dummyImage from '../assets/dummy_image.svg';
-
-export interface Project {
-  slug: string;
-  title: string;
-  description: string;
-  longDescription: string;
-  techStack: string[];
-  githubUrl: string;
-  liveUrl: string;
-  image: string;
-}
 
 export const projectsData: Project[] = [
   {
