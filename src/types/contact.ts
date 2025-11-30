@@ -4,6 +4,8 @@ export interface ContactSectionContent {
   paragraph: string;
   buttonText: string;
   email: string;
+  githubUrl: string;
+  linkedinUrl: string;
 }
 
 export interface ContactSectionContextType {

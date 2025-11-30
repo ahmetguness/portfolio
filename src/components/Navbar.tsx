@@ -59,7 +59,7 @@ const Navbar = () => {
                   to={item.path}
                   className="text-light-gray hover:text-accent-cyan transition-colors duration-300 font-mono"
                 >
-                  <span className="text-accent-cyan">0{index + 1}.</span> {item.name}
+                  <span className="text-accent-cyan"></span> {item.name}
                 </Link>
               </motion.div>
             ))}

@@ -24,7 +24,7 @@ const About = () => {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5 }}
     >
-      <SectionTitle number="01" title="About Me" />
+      <SectionTitle title="About Me" />
       
       <div className="grid grid-cols-1 md:grid-cols-5 gap-16">
         <motion.div 

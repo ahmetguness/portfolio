@@ -2,11 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 interface SectionTitleProps {
-  number: string;
   title: string;
 }
 
-const SectionTitle: React.FC<SectionTitleProps> = ({ number, title }) => {
+const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
   return (
     <motion.div 
       className="flex items-center space-x-4 mb-12"
@@ -16,7 +15,6 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ number, title }) => {
       transition={{ duration: 0.6 }}
     >
       <h2 className="text-3xl font-bold text-light-gray font-mono">
-        <span className="text-accent-cyan text-2xl mr-2">{number}.</span>
         {title}
       </h2>
       <div className="flex-grow h-px bg-card-blue/50"></div>

@@ -79,32 +79,6 @@ const EditHeroPage: React.FC = () => {
               className="shadow appearance-none border border-space-dark bg-space-dark text-light-gray rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline h-32"
             />
           </div>
-          <div className="mb-6">
-            <label className="block text-mid-gray text-sm font-bold mb-2" htmlFor="buttonText">
-              Button Text
-            </label>
-            <input
-              id="buttonText"
-              name="buttonText"
-              type="text"
-              value={content.buttonText}
-              onChange={handleChange}
-              className="shadow appearance-none border border-space-dark bg-space-dark text-light-gray rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-          <div className="mb-6">
-            <label className="block text-mid-gray text-sm font-bold mb-2" htmlFor="cvButtonText">
-              CV Button Text
-            </label>
-            <input
-              id="cvButtonText"
-              name="cvButtonText"
-              type="text"
-              value={content.cvButtonText}
-              onChange={handleChange}
-              className="shadow appearance-none border border-space-dark bg-space-dark text-light-gray rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
           <div className="flex items-center justify-end">
             <button
               type="submit"

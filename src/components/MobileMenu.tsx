@@ -68,7 +68,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen }) => {
               onClick={() => setIsOpen(false)}
               className="text-3xl text-light-gray hover:text-accent-cyan transition-colors duration-300 font-mono text-center"
             >
-              <span className="text-accent-cyan">0{index + 1}.</span> {item.name}
+              <span className="text-accent-cyan"></span> {item.name}
             </Link>
           </motion.li>
         ))}

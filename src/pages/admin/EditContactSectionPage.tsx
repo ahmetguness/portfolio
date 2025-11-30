@@ -66,19 +66,6 @@ const EditContactSectionPage: React.FC = () => {
               className="shadow appearance-none border border-space-dark bg-space-dark text-light-gray rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline h-32"
             />
           </div>
-          <div className="mb-4">
-            <label className="block text-mid-gray text-sm font-bold mb-2" htmlFor="buttonText">
-              Button Text
-            </label>
-            <input
-              id="buttonText"
-              name="buttonText"
-              type="text"
-              value={content.buttonText}
-              onChange={handleChange}
-              className="shadow appearance-none border border-space-dark bg-space-dark text-light-gray rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
           <div className="mb-6">
             <label className="block text-mid-gray text-sm font-bold mb-2" htmlFor="email">
               Email
@@ -88,6 +75,32 @@ const EditContactSectionPage: React.FC = () => {
               name="email"
               type="email"
               value={content.email}
+              onChange={handleChange}
+              className="shadow appearance-none border border-space-dark bg-space-dark text-light-gray rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div className="mb-6">
+            <label className="block text-mid-gray text-sm font-bold mb-2" htmlFor="githubUrl">
+              GitHub URL
+            </label>
+            <input
+              id="githubUrl"
+              name="githubUrl"
+              type="text"
+              value={content.githubUrl}
+              onChange={handleChange}
+              className="shadow appearance-none border border-space-dark bg-space-dark text-light-gray rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div className="mb-6">
+            <label className="block text-mid-gray text-sm font-bold mb-2" htmlFor="linkedinUrl">
+              LinkedIn URL
+            </label>
+            <input
+              id="linkedinUrl"
+              name="linkedinUrl"
+              type="text"
+              value={content.linkedinUrl}
               onChange={handleChange}
               className="shadow appearance-none border border-space-dark bg-space-dark text-light-gray rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
             />

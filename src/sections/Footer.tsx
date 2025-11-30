@@ -1,10 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { socialLinks as allSocials } from '../data/socials';
-
-const socialLinks = allSocials.filter(link => ['GitHub', 'LinkedIn', 'Twitter'].includes(link.name));
+import { useContactSection } from '../data/ContactSectionContext';
 
 const Footer = () => {
+  const { contactSectionContent } = useContactSection();
+
+  const socialLinks = allSocials.filter(link => ['GitHub', 'LinkedIn', 'Twitter'].includes(link.name)).map(link => {
+    if (link.name === 'GitHub') {
+      return { ...link, url: contactSectionContent.githubUrl };
+    }
+    if (link.name === 'LinkedIn') {
+      return { ...link, url: contactSectionContent.linkedinUrl };
+    }
+    return link;
+  });
+
   return (
     <motion.footer 
       className="w-full py-8"

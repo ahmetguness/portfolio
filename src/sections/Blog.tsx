@@ -32,7 +32,7 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen py-24">
-      <SectionTitle number="03" title={blogSectionContent.title} />
+      <SectionTitle title={blogSectionContent.title} />
       <motion.div
         variants={containerVariants}
         initial="hidden"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
 import ProjectsPage from './pages/ProjectsPage';
@@ -22,10 +22,6 @@ import AddProjectPage from './pages/admin/AddProjectPage';
 import EditAboutPage from './pages/admin/EditAboutPage';
 
 import EditHeroPage from './pages/admin/EditHeroPage';
-
-import EditProjectsSectionPage from './pages/admin/EditProjectsSectionPage';
-
-import EditBlogSectionPage from './pages/admin/EditBlogSectionPage';
 
 import EditContactSectionPage from './pages/admin/EditContactSectionPage';
 
@@ -121,22 +117,6 @@ function App() {
             element={
               <ProtectedRoute>
                 <EditHeroPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="edit-projects-section"
-            element={
-              <ProtectedRoute>
-                <EditProjectsSectionPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="edit-blog-section"
-            element={
-              <ProtectedRoute>
-                <EditBlogSectionPage />
               </ProtectedRoute>
             }
           />

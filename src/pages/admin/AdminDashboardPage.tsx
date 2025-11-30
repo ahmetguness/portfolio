@@ -16,12 +16,6 @@ const AdminDashboardPage: React.FC = () => {
               <Link to="/admin/edit-about" className="block hover:bg-card-blue/80 transition-colors p-4 rounded-md">
                 <p className="font-bold text-accent-cyan">Edit About Me Section &rarr;</p>
               </Link>
-              <Link to="/admin/edit-projects-section" className="block hover:bg-card-blue/80 transition-colors p-4 rounded-md">
-                <p className="font-bold text-accent-cyan">Edit Projects Section &rarr;</p>
-              </Link>
-              <Link to="/admin/edit-blog-section" className="block hover:bg-card-blue/80 transition-colors p-4 rounded-md">
-                <p className="font-bold text-accent-cyan">Edit Blog Section &rarr;</p>
-              </Link>
               <Link to="/admin/edit-contact-section" className="block hover:bg-card-blue/80 transition-colors p-4 rounded-md">
                 <p className="font-bold text-accent-cyan">Edit Contact Section &rarr;</p>
               </Link>

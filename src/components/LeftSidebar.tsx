@@ -1,10 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { socialLinks as allSocials } from '../data/socials';
-
-const socialLinks = allSocials.filter(link => ['GitHub', 'LinkedIn', 'Email'].includes(link.name));
+import { useContactSection } from '../data/ContactSectionContext';
 
 const LeftSidebar = () => {
+    const { contactSectionContent } = useContactSection();
+    const socialLinks = allSocials.filter(link => ['GitHub', 'LinkedIn', 'Email'].includes(link.name)).map(link => {
+        if (link.name === 'GitHub') {
+            return { ...link, url: contactSectionContent.githubUrl };
+        }
+        if (link.name === 'LinkedIn') {
+            return { ...link, url: contactSectionContent.linkedinUrl };
+        }
+        if (link.name === "Email") {
+            return { ...link, url: `mailto:${contactSectionContent.email}` };
+        }
+        return link;
+    });
+
     return (
         <motion.div 
             className="hidden md:flex flex-col items-center fixed bottom-0 left-12 z-10"

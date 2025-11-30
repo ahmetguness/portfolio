@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useBlog } from '../data/BlogContext';
 import { Link } from 'react-router-dom';
-import { FiArrowRight } from 'react-icons/fi';
+
 
 const containerVariants = {
     hidden: { opacity: 0 },

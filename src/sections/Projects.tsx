@@ -25,7 +25,7 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen py-24">
-      <SectionTitle number="02" title={projectsSectionContent.title} />
+      <SectionTitle title={projectsSectionContent.title} />
       <motion.div 
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         variants={containerVariants}
