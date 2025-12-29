@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BsDownload } from "react-icons/bs";
 import pdf from "../assets/docs/Resume.pdf";
 import { Document, Page, pdfjs } from 'react-pdf';
@@ -10,6 +11,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/b
 const Resume = () => {
   const[wid, setwid]=useState<number>(window.innerWidth);
   const [numPages, setNumPages] = useState<number>(0);
+  const { t } = useTranslation();
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
     setNumPages(numPages);
@@ -32,9 +34,9 @@ const Resume = () => {
         </div>
       </Document>
 
-      <a href={pdf} target='_blank' download="Ahmet's Resume">
+      <a href={pdf} target='_blank' download="Ahmet's Resume" rel="noreferrer">
         <button className='downloadCV' type='button'>
-          <h3><BsDownload/>&nbsp; Download CV</h3>
+          <h3><BsDownload/>&nbsp; {t('Resume.Download')}</h3>
         </button>
       </a>
 

@@ -1,0 +1,55 @@
+{
+  "Navbar": {
+    "Home": "Anasayfa",
+    "About": "Hakkımda",
+    "Projects": "Projeler",
+    "Blog": "Blog",
+    "Resume": "Özgeçmiş"
+  },
+  "Home": {
+    "Hi": "Merhaba!",
+    "Im": "BEN",
+    "IntroHeading": "Kısa <b>Tanıtım</b>",
+    "IntroParagraph1": "Ham bir fikri insanların hayatına dokunan bir web sitesine veya ürüne dönüştürme sürecini seviyorum. Beni bir geliştirici olarak zorlayan ve gurur duyabileceğim işler yapmak istiyorum.",
+    "IntroParagraph2": "<b>C++</b> diline hakimim, biraz <b>Python</b> biliyorum ve <b>MERN</b> yığını üzerinde birkaç proje üzerinde çalışıyorum.",
+    "IntroParagraph3": "Yakın gelecekte <b>Next.js</b>, <b>Three.js</b> ve <b>Typescript</b> öğrenmeyi planlıyorum.",
+    "Coffee": "Ayrıca <b>kahve</b>yi çok severim"
+  },
+  "About": {
+    "Heading": "Beni <b>Tanıyın</b>!",
+    "Paragraph": "Merhaba, adım <b>Ahmet Güneş</b> ve Ankara, Türkiye'den katılıyorum. Ben bir <b>MERN stack web geliştiricisiyim</b> ve Bilgisayar Mühendisliği son sınıf öğrencisiyim. Bir fintech girişimi olan GoalFi'da <b>yazılım geliştirici</b> stajı yaptım. Güzel tasarımlara sahip özgün projeler oluşturmayı seviyorum, projeler bölümünde bazı çalışmalarıma göz atabilirsiniz. Katkıda bulunabileceğim ve gelişebileceğim yeni işbirliklerine veya çalışmalara <b>açığım</b>. Benimle iletişime geçmekten çekinmeyin, linkler alt kısımdadır.",
+    "SkillsHeading": "Profesyonel Yetenekler"
+  },
+  "Projects": {
+    "Heading": "<b>Projelerim</b>",
+    "Demo": "Demo",
+    "Github": "Github",
+    "WigglesDesc": "Evcil hayvan ebeveynlerinin benzersiz evcil hayvan kimlikleri oluşturmasını, aşı kayıtlarını güvenli bir şekilde saklayıp paylaşmasını ve evcil hayvan profilleri için karekodlar oluşturarak güvenliği artırmasını sağlayan yenilikçi bir evcil hayvan yönetim web uygulaması.",
+    "NewsletterDesc": "Mailchimp API kullanılarak yapılan, kayıtların MailChimp hesabından izlenebildiği bir bülten kayıt sitesi. Bu proje API entegrasyonu, ortam değişkenleri ve vercel dağıtımını anlamak için yapılmıştır.",
+    "RogFreeDesc": "Belirli hastalıklar veya sağlık sorunları için yedi özel yoga duruşunu gösteren bir web sitesi. Bu, Hackodisha 2.0 adlı 36 saatlik çevrimiçi hackathonda iki kişilik bir ekip tarafından yapılan bir grup projesiydi.",
+    "TindogDesc": "Bu web sitesi, Tinder'ın köpekler için olan bir versiyonunun açılış sayfasıdır. Bootstrap'ı anlamak için yapılmış duyarlı bir web sitesidir. Ayrıca projemi Github'da barındırmayı ve ardından Github sayfalarını kullanarak projeyi dağıtmayı öğrendim."
+  },
+  "Blog": {
+    "Heading": "Bloglar",
+    "ReadMore": "Devamını Oku",
+    "Post1Name": "İlk Blog Yazım",
+    "Post1Desc": "Bu ilk blog yazımın kısa bir açıklamasıdır. Web geliştirme yolculuğumdan bahsediyorum.",
+    "Post2Name": "React Öğreniyorum",
+    "Post2Desc": "React öğrenme deneyimimi ve ilk React uygulamamı oluşturma sürecimi paylaşıyorum.",
+    "Post3Name": "MERN Yığını",
+    "Post3Desc": "MERN yığınına ve projelerim için neden bunu seçtiğime dair genel bir bakış."
+  },
+  "Resume": {
+    "Download": "Özgeçmiş İndir"
+  },
+  "Footer": {
+    "DevelopedBy": "Ahmet Güneş tarafından geliştirilmiştir",
+    "Copyright": "Telif Hakkı &copy; 2024 AG"
+  },
+  "Typed": {
+    "Strings": [
+      "Yazılım Geliştirici",
+      "MERN Yığını Geliştiricisi"
+    ]
+  }
+}

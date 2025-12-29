@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {CgFileDocument} from "react-icons/cg";
 
 interface BlogBoxProps {
@@ -9,6 +10,7 @@ interface BlogBoxProps {
 }
 
 const BlogBox: React.FC<BlogBoxProps> = ({blogPhoto, blogName, blogDesc, blogLink}) => {
+  const { t } = useTranslation();
   return (
     <div className='projectBox'> 
         <img className='projectPhoto' src={blogPhoto} alt="Blog display" /> 
@@ -20,7 +22,7 @@ const BlogBox: React.FC<BlogBoxProps> = ({blogPhoto, blogName, blogDesc, blogLin
             <br />
 
             <a href={blogLink} target='_blank' rel="noreferrer">
-              <button className='projectbtn'><CgFileDocument/> Read More</button>
+              <button className='projectbtn'><CgFileDocument/> {t('Blog.ReadMore')}</button>
             </a>
         </div>
     </div>

@@ -1,34 +1,37 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import BlogBox from '../components/BlogBox';
 import TindogImage from '../assets/images/TindogImage.png';
 import RogfreeImage from '../assets/images/RogfreeImage.png';
 import WigglesImage from '../assets/images/WigglesImage.png';
 
 const Blog = () => {
+  const { t } = useTranslation();
+  
   const blogs = [
     {
       blogPhoto: TindogImage,
-      blogName: 'My First Blog Post',
-      blogDesc: 'This is a short description of my first blog post. I talk about my journey into web development.',
+      blogName: t('Blog.Post1Name'),
+      blogDesc: t('Blog.Post1Desc'),
       blogLink: 'https://medium.com/@ahmetgunes'
     },
     {
       blogPhoto: RogfreeImage,
-      blogName: 'Learning React',
-      blogDesc: 'I share my experience of learning React and building my first React application.',
+      blogName: t('Blog.Post2Name'),
+      blogDesc: t('Blog.Post2Desc'),
       blogLink: 'https://medium.com/@ahmetgunes'
     },
     {
       blogPhoto: WigglesImage,
-      blogName: 'The MERN Stack',
-      blogDesc: 'An overview of the MERN stack and why I chose it for my projects.',
+      blogName: t('Blog.Post3Name'),
+      blogDesc: t('Blog.Post3Desc'),
       blogLink: 'https://medium.com/@ahmetgunes'
     }
   ];
 
   return (
     <div className='BlogPage'>
-      <h1 className='BlogHeading'>Blogs</h1>
+      <h1 className='BlogHeading'>{t('Blog.Heading')}</h1>
       <div className='project'>
         {blogs.map((blog, index) => (
           <BlogBox
