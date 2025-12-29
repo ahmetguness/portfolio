@@ -2,9 +2,13 @@ import React from 'react';
 import {FaGithub} from "react-icons/fa";
 import {CgFileDocument} from "react-icons/cg";
 
+interface ProjectBoxProps {
+  projectPhoto: string;
+  projectName: string;
+}
 
-const  ProjectBox = ({projectPhoto, projectName}) => {
-  const desc = {
+const ProjectBox: React.FC<ProjectBoxProps> = ({projectPhoto, projectName}) => {
+  const desc: Record<string, any> = {
     TindogDesc : "This website is a landing page of Tinder but for dogs. It is a responsive website which was made to understand Bootstrap. I also learned how to host my project on Github and then how to deploy that project using Github pages.",
     TindogGithub : "https://github.com/ahmetguness/tindog",
     TindogWebsite : "https://ahmetguness.github.io/tindog/",
@@ -42,16 +46,16 @@ const  ProjectBox = ({projectPhoto, projectName}) => {
             <br />
 
             <div className='projectTags'>
-              {desc[projectName + 'Tags'] && desc[projectName + 'Tags'].map((tag, index) => (
+              {desc[projectName + 'Tags'] && desc[projectName + 'Tags'].map((tag: string, index: number) => (
                 <button key={index} className='projectTag'>{tag}</button>
               ))}
             </div>
 
-            <a style={{display:show}} href={desc[projectName + 'Github']} target='_blank'>
+            <a style={{display:show}} href={desc[projectName + 'Github']} target='_blank' rel="noreferrer">
               <button className='projectbtn'><FaGithub/> Github</button>
             </a>
 
-            <a href={desc[projectName + 'Website']} target='_blank'>
+            <a href={desc[projectName + 'Website']} target='_blank' rel="noreferrer">
               <button className='projectbtn'><CgFileDocument/> Demo</button>
             </a>
         </div>

@@ -1,8 +1,8 @@
 import React from 'react';
-import BlogBox from './BlogBox';
-import TindogImage from '../images/TindogImage.png';
-import RogfreeImage from '../images/RogfreeImage.png';
-import WigglesImage from '../images/WigglesImage.png';
+import BlogBox from '../components/BlogBox';
+import TindogImage from '../assets/images/TindogImage.png';
+import RogfreeImage from '../assets/images/RogfreeImage.png';
+import WigglesImage from '../assets/images/WigglesImage.png';
 
 const Blog = () => {
   const blogs = [

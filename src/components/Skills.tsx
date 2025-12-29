@@ -4,8 +4,12 @@ import {FaReact, FaPython, FaGitAlt, FaGithub, FaNpm, FaFigma, FaBootstrap} from
 import {DiNodejs, DiJavascript1} from "react-icons/di";
 import {SiExpress, SiMongodb, SiPostman, SiVercel} from "react-icons/si";
 
-const Skills = ({skill}) => {
-    const icon = {
+interface SkillsProps {
+  skill: string;
+}
+
+const Skills: React.FC<SkillsProps> = ({skill}) => {
+    const icon: Record<string, JSX.Element> = {
         'C++': <CgCPlusPlus/>,
         Postman: <SiPostman/>,
         React: <FaReact/>,

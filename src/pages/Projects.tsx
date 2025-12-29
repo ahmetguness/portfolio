@@ -1,9 +1,9 @@
 import React from 'react';
-import ProjectBox from './ProjectBox';
-import NewsletterImage from '../images/NewsletterImage.png';
-import RogfreeImage from '../images/RogfreeImage.png';
-import TindogImage from '../images/TindogImage.png';
-import WigglesImage from '../images/WigglesImage.png';
+import ProjectBox from '../components/ProjectBox';
+import NewsletterImage from '../assets/images/NewsletterImage.png';
+import RogfreeImage from '../assets/images/RogfreeImage.png';
+import TindogImage from '../assets/images/TindogImage.png';
+import WigglesImage from '../assets/images/WigglesImage.png';
 
 const Projects = () => {
   return (

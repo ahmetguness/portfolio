@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BsDownload } from "react-icons/bs";
-import pdf from "../Resume.pdf";
+import pdf from "../assets/docs/Resume.pdf";
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
@@ -8,10 +8,10 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/b
 
 
 const Resume = () => {
-  const[wid, setwid]=useState(window.innerWidth);
-  const [numPages, setNumPages] = useState(null);
+  const[wid, setwid]=useState<number>(window.innerWidth);
+  const [numPages, setNumPages] = useState<number>(0);
 
-  function onDocumentLoadSuccess({ numPages }) {
+  function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
     setNumPages(numPages);
   }
 

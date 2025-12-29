@@ -1,8 +1,8 @@
 import React from 'react';
-import Skills from './Skills.js';
+import Skills from '../components/Skills';
 import Tilt from 'react-parallax-tilt';
 import Lottie from "lottie-react"
-import Coder from '../LottieFiles/coder.json';
+import Coder from '../assets/lottie/coder.json';
 
 const About = () => {
   return (

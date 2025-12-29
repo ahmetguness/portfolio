@@ -1,7 +1,14 @@
 import React from 'react';
 import {CgFileDocument} from "react-icons/cg";
 
-const BlogBox = ({blogPhoto, blogName, blogDesc, blogLink}) => {
+interface BlogBoxProps {
+  blogPhoto: string;
+  blogName: string;
+  blogDesc: string;
+  blogLink: string;
+}
+
+const BlogBox: React.FC<BlogBoxProps> = ({blogPhoto, blogName, blogDesc, blogLink}) => {
   return (
     <div className='projectBox'> 
         <img className='projectPhoto' src={blogPhoto} alt="Blog display" /> 
@@ -12,7 +19,7 @@ const BlogBox = ({blogPhoto, blogName, blogDesc, blogLink}) => {
             {blogDesc}
             <br />
 
-            <a href={blogLink} target='_blank'>
+            <a href={blogLink} target='_blank' rel="noreferrer">
               <button className='projectbtn'><CgFileDocument/> Read More</button>
             </a>
         </div>

@@ -1,20 +1,20 @@
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Nav from './Components/Navbar';
-import Footer from "./Components/Footer";
-import Home from "./Components/Home";
-import About from "./Components/About";
-import Resume from "./Components/Resume";
-import Project from "./Components/Projects";
-import Blog from "./Components/Blog";
-import MoveToTop from "./Components/MoveToTop";
+import Nav from './components/Navbar';
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Resume from "./pages/Resume";
+import Project from "./pages/Projects";
+import Blog from "./pages/Blog";
+import MoveToTop from "./components/MoveToTop";
 import Lottie from  "lottie-react";
-import nightsky from "./LottieFiles/night-sky.json";
+import nightsky from "./assets/lottie/night-sky.json";
 import HashLoader from "react-spinners/HashLoader";
 
 
 function App() {
-  const[Loading,SetLoading]=useState(true);
+  const[Loading,SetLoading]=useState<boolean>(true);
 
   useEffect(()=>{
     SetLoading(true)

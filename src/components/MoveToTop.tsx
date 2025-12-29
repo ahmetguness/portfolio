@@ -7,6 +7,8 @@ const MoveToTop = () => {
     useEffect(()=>{
     window.scrollTo(0,0)
     }, [path]);
+
+    return null;
 }
 
 export default MoveToTop;
