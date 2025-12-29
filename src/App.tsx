@@ -1,63 +1,50 @@
-import { Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Nav from './components/Navbar';
-import Footer from "./components/Footer";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Resume from "./pages/Resume";
 import Project from "./pages/Projects";
 import Blog from "./pages/Blog";
-import MoveToTop from "./components/MoveToTop";
-import Lottie from  "lottie-react";
-import nightsky from "./assets/lottie/night-sky.json";
-import HashLoader from "react-spinners/HashLoader";
+import PublicLayout from "./layout/PublicLayout";
 
+// Admin Imports
+import { AuthProvider } from "./admin/context/AuthContext";
+import { RequireAdmin } from "./admin/context/RequireAdmin";
+import AdminLayout from "./admin/layout/AdminLayout";
+import Login from "./admin/pages/Login";
+import Dashboard from "./admin/pages/Dashboard";
+import AdminBlogs from "./admin/pages/Blogs";
+import AdminProjects from "./admin/pages/Projects";
+import HomeContentPage from "./admin/pages/HomeContent";
 
 function App() {
-  const[Loading,SetLoading]=useState<boolean>(true);
-
-  useEffect(()=>{
-    SetLoading(true)
-
-    setTimeout(()=>{
-    SetLoading(false)}
-    ,1900)
-  },[])  
-  
   return (
-    <>
-      {Loading ? (
-      <div className="loader"> 
-        <HashLoader
-          color={'#9067C6'}
-          loading={true}
-          size={100}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      </div>
-      ):(
-      <div>
-      
-      <Lottie className="bg" animationData={nightsky} loop={true} />  
-      <Lottie className="bgtwo" animationData={nightsky} loop={true} />   
-      <Lottie className="bgtemp" animationData={nightsky} loop={true} /> 
-
-      <Nav/>
-      <MoveToTop/>
-
+    <AuthProvider>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/About" element={<About/>}/>
-        <Route path="/Project" element={<Project/>}/>
-        <Route path="/Resume" element={<Resume/>}/>
-        <Route path="/Blog" element={<Blog/>}/>
+        {/* Admin Routes */}
+        <Route path="/admin/login" element={<Login />} />
+        
+        <Route path="/admin" element={
+          <RequireAdmin>
+            <AdminLayout />
+          </RequireAdmin>
+        }>
+          <Route index element={<Navigate to="/admin/dashboard" replace />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="blogs" element={<AdminBlogs />} />
+          <Route path="projects" element={<AdminProjects />} />
+          <Route path="home-content" element={<HomeContentPage />} />
+        </Route>
+
+        {/* Public Routes */}
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<Home/>} />
+          <Route path="/About" element={<About/>}/>
+          <Route path="/Project" element={<Project/>}/>
+          <Route path="/Resume" element={<Resume/>}/>
+          <Route path="/Blog" element={<Blog/>}/>
+        </Route>
       </Routes>
-      
-      <Footer/>
-      </div>
-      )}  
-    </>
+    </AuthProvider>
   );
 }
 
