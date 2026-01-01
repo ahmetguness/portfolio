@@ -22,18 +22,9 @@ export interface Project {
   updatedAt: string;
 }
 
-export interface SocialLink {
-  platform: string;
-  url: string;
-}
 
-export interface HomeContent {
-  heroTitle: string;
-  heroSubtitle: string;
-  ctaText: string;
-  aboutText: string;
-  socials: SocialLink[];
-}
+
+
 
 export interface User {
   username: string;

@@ -1,42 +1,49 @@
-/* Admin Panel Styles - Themed to match Portfolio */
+/* Admin Panel Styles - Exact Match to Homepage */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;900&display=swap');
 
+/* Global Reset for Admin to match Homepage */
 .admin-layout {
     display: flex;
     height: 100vh;
     background-color: #031926;
+    /* Body background */
     color: #E7E7E7;
     font-family: 'Raleway', sans-serif;
     overflow: hidden;
 }
 
-/* Sidebar */
+/* Sidebar - Designed to look like the Navbar */
 .admin-sidebar {
     width: 250px;
-    background-color: rgba(1, 17, 26, 0.95);
-    backdrop-filter: blur(10px);
+    background-color: #01111a8d;
+    /* Navbar blur background */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(20px);
     color: #E7E7E7;
     display: flex;
     flex-direction: column;
-    border-right: 2px solid #431f47;
+    border-right: 1px solid #431f47;
+    /* Subtle border matching theme */
     transition: width 0.3s;
     z-index: 10;
 }
 
 .sidebar-header {
-    padding: 24px;
-    border-bottom: 2px solid #431f47;
+    height: 70px;
+    /* Match Navbar height */
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid #431f47;
 }
 
 .sidebar-header h2 {
-    font-size: 1.8rem;
-    font-weight: 900;
-    margin: 0;
+    font-size: 24px;
+    letter-spacing: 2px;
     color: #9067C6;
-    letter-spacing: 1px;
+    /* Logo color */
+    font-weight: 600;
+    margin: 0;
     text-transform: uppercase;
 }
 
@@ -44,54 +51,52 @@
     display: flex;
     flex-direction: column;
     padding: 20px 0;
-    gap: 8px;
+    gap: 10px;
 }
 
 .sidebar-link {
     display: flex;
     align-items: center;
-    padding: 15px 24px;
+    padding: 10px 24px;
     color: #c2c1c2;
+    /* Navbar link color */
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: 0.3s;
     cursor: pointer;
     background: none;
     border: none;
-    border-left: 4px solid transparent;
-    font-size: 1.1rem;
-    width: 100%;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 500;
     letter-spacing: 0.5px;
+    width: 100%;
 }
 
 .sidebar-link:hover,
 .sidebar-link.active {
     color: #ffffff;
-    background-color: rgba(144, 103, 198, 0.1);
-    border-left: 4px solid #9067C6;
-    padding-left: 30px;
-    /* Slight movement effect */
+    /* Navbar link hover color */
+    background: transparent;
+}
+
+.sidebar-link.active {
+    color: #9067C6;
+    font-weight: 700;
 }
 
 .sidebar-link svg {
     margin-right: 15px;
-    font-size: 1.4rem;
-    color: #9067C6;
-}
-
-.sidebar-link.active svg {
-    color: #ffffff;
+    font-size: 20px;
 }
 
 .logout-btn {
     margin-top: auto;
     color: #E7E7E7;
-    border-top: 2px solid #431f47;
+    border-top: 1px solid #431f47;
+    padding: 20px;
 }
 
 .logout-btn:hover {
-    background-color: #431f47;
-    color: white;
+    color: #9067C6;
 }
 
 /* Main Content */
@@ -103,11 +108,12 @@
     position: relative;
 }
 
+/* Topbar - Transparent/Blur like Navbar */
 .admin-topbar {
-    height: 80px;
-    background-color: rgba(1, 17, 26, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 2px solid #431f47;
+    height: 70px;
+    background-color: #01111a8d;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #431f47;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -119,135 +125,123 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    font-weight: 700;
+    font-weight: 600;
     color: #9067C6;
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-    padding: 8px 16px;
-    border: 2px solid #431f47;
-    /* Mimic button style for profile badge */
-    border-radius: 5px;
+    font-size: 18px;
 }
 
 .admin-content {
     flex: 1;
     overflow-y: auto;
     padding: 40px;
-    /* Subtle gradient background similar to night sky effect */
-    background: radial-gradient(circle at bottom, #05263b 0%, #031926 70%);
+    /* Background matches body, no extra gradient needed as Lottie is there */
 }
 
-/* Cards & Containers */
-.admin-card {
-    background: rgba(3, 25, 38, 0.6);
-    border: 3px solid #431f47;
-    border-radius: 5px;
-    padding: 30px;
-    margin-bottom: 30px;
-    transition: 0.4s;
-    backdrop-filter: blur(5px);
-}
-
-.admin-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px 0 rgba(67, 31, 71, 0.4);
-    border-color: #9067C6;
-}
-
+/* Headings matching .projectHeading */
 .admin-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(144, 103, 198, 0.3);
+    border-bottom: 1px solid #431f47;
 }
 
 .admin-header h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-size: 36px;
+    /* .projectHeading size */
+    font-weight: 600;
+    letter-spacing: 0.4px;
     color: #E7E7E7;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: left;
 }
 
-/* Buttons */
-.admin-btn {
-    padding: 10px 25px;
+/* Cards - Matching .projectBox exactly */
+.admin-card {
+    background: transparent;
+    border: 3px solid #431f47;
     border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-weight: 700;
-    transition: 0.3s;
+    padding: 20px;
+    margin-bottom: 30px;
+    transition: 0.5s;
+    text-align: left;
+}
+
+.admin-card:hover {
+    transform: scale(1.02);
+    /* Slightly less than projectBox 1.05 for UI stability */
+    box-shadow: 0 4px 10px 0 #431f47;
+}
+
+/* Buttons - Matching .projectbtn exactly */
+.admin-btn {
+    font-size: 18px;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-size: 1rem;
+    justify-content: center;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #431f47;
+    color: #E7E7E7;
+    height: auto;
+    min-height: 35px;
+    cursor: pointer;
     text-decoration: none;
-    letter-spacing: 0.5px;
-    font-family: 'Raleway', sans-serif;
+    border: none;
+    transition: 0.5s;
+    /* from .projectBox transition */
+    font-weight: 500;
+    font-family: inherit;
+}
+
+.admin-btn:hover {
+    /* No specific hover style in index.css for projectbtn, but usually scale */
+    transform: scale(1.05);
+    /* Matching hover effect */
+    color: #ffffff;
 }
 
 .btn-primary {
+    /* Inherits admin-btn, ensuring specific matches */
     background-color: #431f47;
-    color: #E7E7E7;
-    border: 2px solid #431f47;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.btn-primary:hover {
-    background-color: #E7E7E7;
-    color: #431f47;
-    border-color: #E7E7E7;
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(144, 103, 198, 0.4);
 }
 
 .btn-danger {
     background-color: transparent;
     border: 2px solid #e53e3e;
+    /* Distinct danger style still needed */
     color: #e53e3e;
 }
 
 .btn-danger:hover {
     background-color: #e53e3e;
-    color: white;
-    box-shadow: 0 4px 10px rgba(229, 62, 62, 0.4);
+    color: #ffffff;
 }
 
 /* Tables */
 .admin-table {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 15px;
+    border-spacing: 0 10px;
 }
 
 .admin-table th {
     text-align: left;
-    padding: 15px 20px;
+    padding: 15px;
     color: #9067C6;
-    font-size: 1.2rem;
-    font-weight: 800;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-}
-
-.admin-table tbody tr {
-    transition: 0.3s;
-}
-
-.admin-table tbody tr:hover {
-    transform: scale(1.01);
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #431f47;
 }
 
 .admin-table td {
-    padding: 20px;
-    background-color: rgba(67, 31, 71, 0.15);
-    /* Slight purple tint */
+    padding: 15px;
     border-top: 1px solid #431f47;
     border-bottom: 1px solid #431f47;
-    font-size: 1.05rem;
+    background-color: rgba(67, 31, 71, 0.1);
     color: #c2c1c2;
+    font-size: 18px;
+    /* Matching text size */
 }
 
 .admin-table td:first-child {
@@ -255,7 +249,6 @@
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     color: #E7E7E7;
-    font-weight: 600;
 }
 
 .admin-table td:last-child {
@@ -264,46 +257,46 @@
     border-bottom-right-radius: 5px;
 }
 
-/* Forms */
+/* Forms - Inputs matching general style */
 .admin-form {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
     max-width: 800px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .form-group label {
-    font-weight: 700;
+    font-weight: 600;
     color: #9067C6;
-    letter-spacing: 0.8px;
-    font-size: 1.1rem;
+    font-size: 20px;
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
-    padding: 15px;
-    border: 2px solid #431f47;
+    padding: 12px;
+    border: 3px solid #431f47;
+    /* Matches projectBox border */
     border-radius: 5px;
-    font-size: 1rem;
-    background-color: rgba(3, 25, 38, 0.8);
+    font-size: 18px;
+    background-color: transparent;
+    /* Transparent to show background */
     color: #E7E7E7;
-    font-family: 'Raleway', sans-serif;
-    transition: 0.3s;
+    font-family: inherit;
+    transition: 0.5s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
+    box-shadow: 0 0 10px #431f47;
     border-color: #9067C6;
-    box-shadow: 0 0 15px rgba(144, 103, 198, 0.3);
-    transform: translateY(-2px);
 }
 
 /* Login Page */
@@ -312,34 +305,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Background handled by Layout Lottie/Color */
     background-color: #031926;
-    position: relative;
-    background-image:
-        radial-gradient(circle at 20% 30%, rgba(144, 103, 198, 0.1) 0%, transparent 10%),
-        radial-gradient(circle at 80% 70%, rgba(144, 103, 198, 0.1) 0%, transparent 10%);
 }
 
 .login-card {
-    background: rgba(3, 25, 38, 0.9);
-    padding: 60px 40px;
+    /* Matches projectBox style */
+    background: transparent;
     border: 3px solid #431f47;
-    border-radius: 10px;
+    border-radius: 5px;
+    padding: 40px;
     width: 100%;
-    max-width: 450px;
-    box-shadow: 0 0 30px rgba(67, 31, 71, 0.4);
-    backdrop-filter: blur(10px);
+    max-width: 400px;
     text-align: center;
+    backdrop-filter: blur(10px);
+    /* Enhanced readability */
 }
 
 .login-card h2 {
     color: #9067C6;
-    letter-spacing: 2px;
-    font-size: 2rem;
+    font-size: 32px;
     margin-bottom: 30px;
-    text-transform: uppercase;
+    font-weight: 600;
 }
 
-/* Scrollbar matches global */
+/* Scrollbar matches index.css */
 .admin-content::-webkit-scrollbar {
     width: 10px;
 }
@@ -350,20 +340,20 @@
 }
 
 .admin-content::-webkit-scrollbar-thumb {
-    background: #431f47;
+    background: #01111a;
+    /* Changed to match index.css exactly */
     border-radius: 100px;
 }
 
 /* Responsive */
 @media(max-width: 800px) {
     .admin-sidebar {
-        width: 0;
-        overflow: hidden;
         position: absolute;
-        height: 100%;
+        height: 100vh;
+        left: -250px;
     }
 
     .admin-sidebar.open {
-        width: 250px;
+        left: 0;
     }
 }

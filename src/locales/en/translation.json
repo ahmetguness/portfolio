@@ -10,14 +10,13 @@
     "Hi": "Hi There!",
     "Im": "I'M",
     "IntroHeading": "Brief <b>introduction</b>",
-    "IntroParagraph1": "I love the process of changing a raw idea into a website or a product that impacts lives. I want to do work that challenges me as a developer & work that I can be proud of.",
-    "IntroParagraph2": "I am fluent in <b>C++</b> and know a bit of <b>Python</b> and am working on a few projects in the <b>MERN</b> stack.",
-    "IntroParagraph3": "I plan to learn <b>Next.js</b>, <b>Three.js</b> and<b> Typescript</b> in the near future.",
-    "Coffee": "Also, I love <b>coffee</b>"
+    "IntroParagraph1": "I enjoy turning ideas into real products instead of leaving them as code on a screen. I like building things end-to-end, from mobile applications to backend services that actually solve problems.",
+    "IntroParagraph2": "I develop mobile applications using <b>React Native</b> and <b>TypeScript</b>. I’m also interested in the backend side, working with APIs, data flow, and system communication.",
+    "IntroParagraph3": "I set up a small self-hosted environment by turning an old PC at home into a <b>Linux server</b>. I’m also interested in <b>networking</b>, <b>ESP32</b>, and automation tools like <b>n8n</b>, and I enjoy connecting systems and automating workflows."
   },
   "About": {
     "Heading": "Get to <b>know</b> me!",
-    "Paragraph": "Hi, my name is <b>Ahmet Güneş</b> and I am from Ankara, Turkey. I'm a <b>MERN stack web developer</b> and a final year college student pursuing <b>BTech in CSE</b>. I have done an internship as a <b>software developer</b> at GoalFi which is a fintech startup. I love to create original projects with beautiful designs, you can check out some of my work in the projects section. I am <b>open</b> to new collaborations or work where I can contribute and grow. Feel free to connect with me, links are in the footer.",
+    "Paragraph": "Hi, my name is <b>Ahmet Güneş</b> and I’m based in <b>İzmir, Turkey</b>. I’m a <b>Computer Engineering graduate</b> with a focus on building mobile applications using <b>React Native</b> and <b>TypeScript</b>, while also being strongly interested in backend systems and infrastructure. I completed mobile and software development internships at <b>Akbank</b>, <b>IsTechSoft</b>, and <b>Samsun Atakum Municipality</b>, where I gained hands-on experience working on real-world applications and development workflows. Beyond application development, I enjoy experimenting with systems by turning an old PC at home into a small <b>Linux server</b>, and exploring <b>networking</b>, <b>automation with n8n</b>, and hardware projects like <b>ESP32</b>. I like building systems where different components communicate reliably and efficiently. I’m open to new opportunities, collaborations, and projects where I can contribute, learn, and grow. Feel free to reach out — you can find my links in the footer.",
     "SkillsHeading": "Professional Skillset"
   },
   "Projects": {
@@ -48,8 +47,12 @@
   },
   "Typed": {
     "Strings": [
-      "Software Developer",
-      "MERN Stack Developer"
+      "Backend Developer",
+      "Mobile Application Developer",
+      "Full-Stack Developer",
+      "ESP32 Prototyper",
+      "Embedded Systems Beginner",
+      "DevOps-Inclined Developer"
     ]
   }
 }

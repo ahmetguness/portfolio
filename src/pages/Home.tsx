@@ -4,7 +4,7 @@ import SpaceBoy from "../assets/lottie/SpaceBoy.json";
 import Typed from "../components/Typed";
 import Tilt from 'react-parallax-tilt';
 import Avatar from '../assets/images/Avatar.png';
-import {CiCoffeeCup} from "react-icons/ci";
+
 import { useTranslation, Trans } from 'react-i18next';
 
 const Home = () => {
@@ -36,7 +36,7 @@ const Home = () => {
             {t('Home.IntroParagraph1')}<br /><br />
             <Trans i18nKey="Home.IntroParagraph2" components={{ b: <b /> }} /><br />
             <Trans i18nKey="Home.IntroParagraph3" components={{ b: <b /> }} /> <br /><br />
-            <Trans i18nKey="Home.Coffee" components={{ b: <b /> }} /> <CiCoffeeCup style={{scale:"1.5", rotate:"15deg"}}/>   
+
           </p>
         </div>
         <Tilt>

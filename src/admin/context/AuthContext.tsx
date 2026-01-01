@@ -10,10 +10,18 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(authService.isAuthenticated());
+  // Initialize directly from service to avoid flash of "unauthenticated" state
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => authService.isAuthenticated());
 
   useEffect(() => {
-    setIsAuthenticated(authService.isAuthenticated());
+    // Double check on mount, though initial state should catch it
+    const checkAuth = () => {
+        setIsAuthenticated(authService.isAuthenticated());
+    };
+    
+    // Add event listener for storage changes (support multi-tab logout)
+    window.addEventListener('storage', checkAuth);
+    return () => window.removeEventListener('storage', checkAuth);
   }, []);
 
   const login = (password: string) => {

@@ -10,7 +10,6 @@ const Sidebar = () => {
     { path: '/admin/dashboard', icon: <MdDashboard />, label: 'Dashboard' },
     { path: '/admin/blogs', icon: <MdArticle />, label: 'Blogs' },
     { path: '/admin/projects', icon: <MdWork />, label: 'Projects' },
-    { path: '/admin/home-content', icon: <MdHome />, label: 'Home Content' },
   ];
 
   return (

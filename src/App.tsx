@@ -14,7 +14,7 @@ import Login from "./admin/pages/Login";
 import Dashboard from "./admin/pages/Dashboard";
 import AdminBlogs from "./admin/pages/Blogs";
 import AdminProjects from "./admin/pages/Projects";
-import HomeContentPage from "./admin/pages/HomeContent";
+
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="blogs" element={<AdminBlogs />} />
           <Route path="projects" element={<AdminProjects />} />
-          <Route path="home-content" element={<HomeContentPage />} />
+
         </Route>
 
         {/* Public Routes */}
