@@ -7,23 +7,31 @@ interface BlogBoxProps {
   blogName: string;
   blogDesc: string;
   blogLink: string;
+  date?: string;
 }
 
-const BlogBox: React.FC<BlogBoxProps> = ({blogPhoto, blogName, blogDesc, blogLink}) => {
+const BlogBox: React.FC<BlogBoxProps> = ({blogPhoto, blogName, blogDesc, blogLink, date}) => {
   const { t } = useTranslation();
+  
+  // Format date if provided
+  const formattedDate = date ? new Date(date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+
   return (
     <div className='projectBox'> 
         <img className='projectPhoto' src={blogPhoto} alt="Blog display" /> 
-        <div>
-            <br />
-            <h3>{blogName}</h3>
-            <br />
-            {blogDesc}
-            <br />
+        <div className='projectContent'>
+            {formattedDate && <span className='projectDate'>{formattedDate}</span>}
+            <h3 className='projectTitle'>{blogName}</h3>
+            
+            <p className='projectDesc'>
+              {blogDesc}
+            </p>
 
-            <a href={blogLink} target='_blank' rel="noreferrer">
-              <button className='projectbtn'><CgFileDocument/> {t('Blog.ReadMore')}</button>
-            </a>
+            <div className='projectBtnGroup'>
+              <a href={blogLink} target='_blank' rel="noreferrer">
+                <button className='projectbtn'><CgFileDocument/> {t('Blog.ReadMore')}</button>
+              </a>
+            </div>
         </div>
     </div>
   )
