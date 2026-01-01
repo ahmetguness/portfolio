@@ -1,88 +1,77 @@
 import { BlogPost } from '../types';
-
-const STORAGE_KEY = 'admin_blogs';
-
-const defaultBlogs: BlogPost[] = [
-  {
-    id: '1',
-    title: 'My Journey into Web Development',
-    shortDescription: 'How I started my coding journey from zero to hero, learning React and TypeScript along the way.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&q=80',
-    mediumUrl: 'https://medium.com/@ahmetgunes',
-    publishedAt: '2023-01-15',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: '2',
-    title: 'Understanding React Hooks',
-    shortDescription: 'A deep dive into useState, useEffect, and custom hooks for better state management.',
-    image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=500&q=80',
-    mediumUrl: 'https://medium.com/@ahmetgunes',
-    publishedAt: '2023-03-22',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  }
-];
-
-const getBlogs = (): BlogPost[] => {
-  const data = localStorage.getItem(STORAGE_KEY);
-  return data ? JSON.parse(data) : defaultBlogs;
-};
-
-const saveBlogs = (blogs: BlogPost[]) => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(blogs));
-};
+import api from '../../services/api';
 
 export const blogService = {
   list: async (): Promise<BlogPost[]> => {
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(getBlogs()), 500);
-    });
+    const blogs = await api.getBlogs();
+    return blogs.map((b: any) => ({
+      id: b.id,
+      title: b.title,
+      shortDescription: b.short_description,
+      image: b.image_url,
+      mediumUrl: b.medium_url,
+      publishedAt: b.published_at,
+      createdAt: b.created_at,
+      updatedAt: b.updated_at,
+    }));
   },
 
   get: async (id: string): Promise<BlogPost | undefined> => {
-    return new Promise((resolve) => {
-      const blogs = getBlogs();
-      setTimeout(() => resolve(blogs.find(b => b.id === id)), 300);
-    });
+      // API doesn't have getById yet in this plan? 
+      // The plan only had List. But I can filter list or add endpoint.
+      // Since list is small, finding in list is fine for now, or just return undefined if strict.
+      // Ref: `api.ts` only has `getBlogs`.
+      // I will fetch all and find.
+      // Optimization: Add getById endpoint later.
+      const blogs = await blogService.list();
+      return blogs.find(b => b.id === id);
   },
 
   create: async (blog: Omit<BlogPost, 'id' | 'createdAt' | 'updatedAt'>): Promise<BlogPost> => {
-    return new Promise((resolve) => {
-      const blogs = getBlogs();
-      const newBlog: BlogPost = {
-        ...blog,
-        id: Math.random().toString(36).substr(2, 9),
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      };
-      blogs.push(newBlog);
-      saveBlogs(blogs);
-      setTimeout(() => resolve(newBlog), 500);
-    });
+    const payload = {
+        title: blog.title,
+        short_description: blog.shortDescription,
+        image_url: blog.image,
+        medium_url: blog.mediumUrl,
+        published_at: blog.publishedAt
+    };
+    // @ts-ignore
+    const b = await api.createBlog(payload);
+    return {
+      id: b.id,
+      title: b.title,
+      shortDescription: b.short_description,
+      image: b.image_url,
+      mediumUrl: b.medium_url,
+      publishedAt: b.published_at,
+      createdAt: b.created_at,
+      updatedAt: b.updated_at,
+    } as BlogPost;
   },
 
   update: async (id: string, updates: Partial<BlogPost>): Promise<BlogPost> => {
-    return new Promise((resolve, reject) => {
-      const blogs = getBlogs();
-      const index = blogs.findIndex(b => b.id === id);
-      if (index === -1) {
-        reject(new Error('Blog not found'));
-        return;
-      }
-      blogs[index] = { ...blogs[index], ...updates, updatedAt: new Date().toISOString() };
-      saveBlogs(blogs);
-      setTimeout(() => resolve(blogs[index]), 500);
-    });
+    const payload: any = {};
+    if (updates.title) payload.title = updates.title;
+    if (updates.shortDescription) payload.short_description = updates.shortDescription;
+    if (updates.image) payload.image_url = updates.image;
+    if (updates.mediumUrl) payload.medium_url = updates.mediumUrl;
+    if (updates.publishedAt) payload.published_at = updates.publishedAt;
+
+    // @ts-ignore
+    const b = await api.updateBlog(id, payload);
+    return {
+      id: b.id,
+      title: b.title,
+      shortDescription: b.short_description,
+      image: b.image_url,
+      mediumUrl: b.medium_url,
+      publishedAt: b.published_at,
+      createdAt: b.created_at,
+      updatedAt: b.updated_at,
+    } as BlogPost;
   },
 
   remove: async (id: string): Promise<void> => {
-    return new Promise((resolve) => {
-      let blogs = getBlogs();
-      blogs = blogs.filter(b => b.id !== id);
-      saveBlogs(blogs);
-      setTimeout(() => resolve(), 500);
-    });
+    await api.deleteBlog(id);
   }
 };

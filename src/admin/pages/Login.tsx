@@ -11,9 +11,9 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || '/admin/dashboard';
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (login(password)) {
+    if (await login(password)) {
       navigate(from, { replace: true });
     } else {
       setError('Invalid password');
@@ -39,9 +39,7 @@ const Login = () => {
             Login
           </button>
         </form>
-        <p style={{ marginTop: '20px', textAlign: 'center', color: '#718096', fontSize: '0.9rem' }}>
-          Hint: Password is <b>admin123</b>
-        </p>
+
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
              <a href="/" style={{ color: '#9067C6', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px' }}>
                 &larr; Back to Home

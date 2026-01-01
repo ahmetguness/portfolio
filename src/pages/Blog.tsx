@@ -1,47 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import BlogBox from '../components/BlogBox';
-import TindogImage from '../assets/images/TindogImage.png';
-import RogfreeImage from '../assets/images/RogfreeImage.png';
-import WigglesImage from '../assets/images/WigglesImage.png';
+import api, { Blog as BlogType } from '../services/api';
 
 const Blog = () => {
   const { t } = useTranslation();
-  
-  const blogs = [
-    {
-      blogPhoto: TindogImage,
-      blogName: t('Blog.Post1Name'),
-      blogDesc: t('Blog.Post1Desc'),
-      blogLink: 'https://medium.com/@ahmetgunes'
-    },
-    {
-      blogPhoto: RogfreeImage,
-      blogName: t('Blog.Post2Name'),
-      blogDesc: t('Blog.Post2Desc'),
-      blogLink: 'https://medium.com/@ahmetgunes'
-    },
-    {
-      blogPhoto: WigglesImage,
-      blogName: t('Blog.Post3Name'),
-      blogDesc: t('Blog.Post3Desc'),
-      blogLink: 'https://medium.com/@ahmetgunes'
+  const [blogs, setBlogs] = useState<BlogType[]>([]);
+
+  useEffect(() => {
+    loadBlogs();
+  }, []);
+
+  const loadBlogs = async () => {
+    try {
+      const data = await api.getBlogs();
+      setBlogs(data);
+    } catch (error) {
+      console.error("Failed to load blogs", error);
     }
-  ];
+  };
 
   return (
     <div className='BlogPage'>
       <h1 className='BlogHeading'>{t('Blog.Heading')}</h1>
       <div className='project'>
-        {blogs.map((blog, index) => (
+        {blogs.map((blog) => (
           <BlogBox
-            key={index}
-            blogPhoto={blog.blogPhoto}
-            blogName={blog.blogName}
-            blogDesc={blog.blogDesc}
-            blogLink={blog.blogLink}
+            key={blog.id}
+            blogPhoto={blog.image_url || "https://images.unsplash.com/photo-1432821596592-e2c18b78144f?q=80&w=2070&auto=format&fit=crop"}
+            blogName={blog.title}
+            blogDesc={blog.short_description}
+            blogLink={blog.medium_url}
           />
         ))}
+        {blogs.length === 0 && <p style={{textAlign: 'center'}}>No blogs found.</p>}
       </div>
     </div>
   );

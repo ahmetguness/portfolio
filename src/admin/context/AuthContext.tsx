@@ -3,7 +3,7 @@ import { authService } from '../services/authService';
 
 interface AuthContextType {
   isAuthenticated: boolean;
-  login: (password: string) => boolean;
+  login: (password: string) => Promise<boolean>;
   logout: () => void;
 }
 
@@ -24,8 +24,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return () => window.removeEventListener('storage', checkAuth);
   }, []);
 
-  const login = (password: string) => {
-    const success = authService.login(password);
+  const login = async (password: string) => {
+    const success = await authService.login(password);
     if (success) {
       setIsAuthenticated(true);
     }
