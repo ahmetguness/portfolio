@@ -26,7 +26,9 @@
     "WigglesDesc": "Evcil hayvan ebeveynlerinin benzersiz evcil hayvan kimlikleri oluşturmasını, aşı kayıtlarını güvenli bir şekilde saklayıp paylaşmasını ve evcil hayvan profilleri için karekodlar oluşturarak güvenliği artırmasını sağlayan yenilikçi bir evcil hayvan yönetim web uygulaması.",
     "NewsletterDesc": "Mailchimp API kullanılarak yapılan, kayıtların MailChimp hesabından izlenebildiği bir bülten kayıt sitesi. Bu proje API entegrasyonu, ortam değişkenleri ve vercel dağıtımını anlamak için yapılmıştır.",
     "RogFreeDesc": "Belirli hastalıklar veya sağlık sorunları için yedi özel yoga duruşunu gösteren bir web sitesi. Bu, Hackodisha 2.0 adlı 36 saatlik çevrimiçi hackathonda iki kişilik bir ekip tarafından yapılan bir grup projesiydi.",
-    "TindogDesc": "Bu web sitesi, Tinder'ın köpekler için olan bir versiyonunun açılış sayfasıdır. Bootstrap'ı anlamak için yapılmış duyarlı bir web sitesidir. Ayrıca projemi Github'da barındırmayı ve ardından Github sayfalarını kullanarak projeyi dağıtmayı öğrendim."
+    "RogFreeDesc": "Belirli hastalıklar veya sağlık sorunları için yedi özel yoga duruşunu gösteren bir web sitesi. Bu, Hackodisha 2.0 adlı 36 saatlik çevrimiçi hackathonda iki kişilik bir ekip tarafından yapılan bir grup projesiydi.",
+    "TindogDesc": "Bu web sitesi, Tinder'ın köpekler için olan bir versiyonunun açılış sayfasıdır. Bootstrap'ı anlamak için yapılmış duyarlı bir web sitesidir. Ayrıca projemi Github'da barındırmayı ve ardından Github sayfalarını kullanarak projeyi dağıtmayı öğrendim.",
+    "Featured": "Öne Çıkan"
   },
   "Blog": {
     "Heading": "Bloglar",
@@ -54,5 +56,38 @@
       "Gömülü Sistemlere Giriş",
       "DevOps’e Yakın Geliştirici"
     ]
+  },
+  "Admin": {
+    "Dashboard": "Panel",
+    "Blogs": "Bloglar",
+    "Projects": "Projeler",
+    "NewBlog": "Yeni Blog",
+    "NewProject": "Yeni Proje",
+    "EditBlog": "Blog Düzenle",
+    "EditProject": "Proje Düzenle",
+    "BackToHome": "Ana Sayfaya Dön",
+    "Logout": "Çıkış Yap",
+    "Cancel": "İptal",
+    "Save": "Kaydet",
+    "Title": "Başlık",
+    "ShortDesc": "Kısa Açıklama",
+    "ImageURL": "Görsel URL",
+    "MediumURL": "Medium URL",
+    "PublishedAt": "Yayınlanma Tarihi",
+    "GithubURL": "Github URL",
+    "LiveURL": "Canlı URL",
+    "TechTags": "Teknolojiler (virgülle ayırın)",
+    "Featured": "Öne Çıkan Proje?",
+    "Actions": "İşlemler",
+    "Image": "Görsel",
+    "Tags": "Etiketler",
+    "Links": "Bağlantılar",
+    "View": "Görüntüle",
+    "DeleteConfirm": "Bunu silmek istediğinizden emin misiniz?",
+    "Draft": "Taslak",
+    "NoBlogs": "Blog bulunamadı",
+    "NoProjects": "Proje bulunamadı",
+    "TotalBlogs": "Toplam Blog",
+    "TotalProjects": "Toplam Proje"
   }
 }

@@ -33,7 +33,7 @@ const Blog = () => {
         {blogs.map((blog) => (
           <BlogBox
             key={blog.id}
-            blogPhoto={blog.image_url || "https://images.unsplash.com/photo-1432821596592-e2c18b78144f?q=80&w=2070&auto=format&fit=crop"}
+            blogPhoto={blog.image_url || ""}
             blogName={blog.title}
             blogDesc={blog.short_description}
             blogLink={blog.medium_url}

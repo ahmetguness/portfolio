@@ -3,7 +3,11 @@ import { projectService } from '../services/projectService';
 import { Project } from '../types';
 import { MdEdit, MdDelete, MdAdd } from 'react-icons/md';
 
+import placeholderImg from '../../assets/images/placeholder.png';
+import { useTranslation } from 'react-i18next';
+
 const Projects = () => {
+  const { t } = useTranslation();
   const [projects, setProjects] = useState<Project[]>([]);
   const [isEditing, setIsEditing] = useState(false);
   const [currentProject, setCurrentProject] = useState<Partial<Project>>({});
@@ -18,7 +22,7 @@ const Projects = () => {
   };
 
   const handleDelete = async (id: string) => {
-    if (window.confirm('Are you sure you want to delete this project?')) {
+    if (window.confirm(t('Admin.DeleteConfirm'))) {
       await projectService.remove(id);
       loadProjects();
     }
@@ -49,13 +53,13 @@ const Projects = () => {
     return (
       <div>
         <div className="admin-header">
-          <h2>{currentProject.id ? 'Edit Project' : 'New Project'}</h2>
-          <button onClick={() => setIsEditing(false)} className="admin-btn">Cancel</button>
+          <h2>{currentProject.id ? t('Admin.EditProject') : t('Admin.NewProject')}</h2>
+          <button onClick={() => setIsEditing(false)} className="admin-btn">{t('Admin.Cancel')}</button>
         </div>
         <div className="admin-card">
           <form onSubmit={handleSubmit} className="admin-form">
             <div className="form-group">
-              <label>Title <span style={{color: 'red'}}>*</span></label>
+              <label>{t('Admin.Title')} <span style={{color: 'red'}}>*</span></label>
               <input
                 value={currentProject.title || ''}
                 onChange={e => setCurrentProject({ ...currentProject, title: e.target.value })}
@@ -64,7 +68,7 @@ const Projects = () => {
             </div>
 
             <div className="form-group">
-              <label>Short Description</label>
+              <label>{t('Admin.ShortDesc')}</label>
               <textarea
                 value={currentProject.shortDescription || ''}
                 onChange={e => setCurrentProject({ ...currentProject, shortDescription: e.target.value })}
@@ -73,7 +77,7 @@ const Projects = () => {
             </div>
 
             <div className="form-group">
-              <label>Image URL</label>
+              <label>{t('Admin.ImageURL')}</label>
               <input
                 value={currentProject.image || ''}
                 onChange={e => setCurrentProject({ ...currentProject, image: e.target.value })}
@@ -82,7 +86,7 @@ const Projects = () => {
             </div>
 
             <div className="form-group">
-              <label>Tech Tags (comma separated)</label>
+              <label>{t('Admin.TechTags')}</label>
               <input
                 value={currentProject.techTags?.join(', ') || ''}
                 onChange={e => setCurrentProject({ ...currentProject, techTags: e.target.value.split(',').map(s => s.trim()) })}
@@ -91,7 +95,7 @@ const Projects = () => {
             </div>
 
              <div className="form-group">
-              <label>Github URL <span style={{color: 'red'}}>*</span></label>
+              <label>{t('Admin.GithubURL')} <span style={{color: 'red'}}>*</span></label>
               <input
                 value={currentProject.githubUrl || ''}
                 onChange={e => setCurrentProject({ ...currentProject, githubUrl: e.target.value })}
@@ -100,7 +104,7 @@ const Projects = () => {
             </div>
 
              <div className="form-group">
-              <label>Live URL</label>
+              <label>{t('Admin.LiveURL')}</label>
               <input
                 value={currentProject.liveUrl || ''}
                 onChange={e => setCurrentProject({ ...currentProject, liveUrl: e.target.value })}
@@ -114,10 +118,10 @@ const Projects = () => {
                     onChange={e => setCurrentProject({ ...currentProject, featured: e.target.checked })}
                     style={{ width: 'auto' }}
                 />
-                <label>Featured Project?</label>
+                <label>{t('Admin.Featured')}</label>
             </div>
 
-            <button type="submit" className="admin-btn btn-primary">Save Project</button>
+            <button type="submit" className="admin-btn btn-primary">{t('Admin.Save')}</button>
           </form>
         </div>
       </div>
@@ -127,26 +131,28 @@ const Projects = () => {
   return (
     <div>
       <div className="admin-header">
-        <h2>Projects</h2>
-        <button onClick={handleCreate} className="admin-btn btn-primary"><MdAdd /> New Project</button>
+        <h2>{t('Admin.Projects')}</h2>
+        <button onClick={handleCreate} className="admin-btn btn-primary"><MdAdd /> {t('Admin.NewProject')}</button>
       </div>
       <div className="admin-card" style={{ overflowX: 'auto'}}>
         <table className="admin-table">
           <thead>
             <tr>
-              <th style={{ width: '80px'}}>Image</th>
-              <th>Title</th>
-              <th>Tags</th>
-              <th>Links</th>
-              <th>Actions</th>
+              <th style={{ width: '80px'}}>{t('Admin.Image')}</th>
+              {/* ... headers */}
+              <th>{t('Admin.Title')}</th>
+              <th>{t('Admin.Tags')}</th>
+              <th>{t('Admin.Links')}</th>
+              <th>{t('Admin.Actions')}</th>
             </tr>
           </thead>
           <tbody>
             {projects.map(project => (
               <tr key={project.id}>
                 <td>
-                    {project.image && <img src={project.image} alt="thumb" style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '4px' }} />}
+                    <img src={project.image || placeholderImg} alt="thumb" style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '4px' }} />
                 </td>
+                {/* ... rest of row */}
                 <td>
                     <div style={{ fontWeight: 600 }}>{project.title}</div>
                     {project.featured && <span style={{ fontSize: '0.8rem', color: '#ffd700', fontWeight: 'bold' }}>★ Featured</span>}
@@ -170,7 +176,7 @@ const Projects = () => {
                 </td>
               </tr>
             ))}
-            {projects.length === 0 && <tr><td colSpan={5} style={{ textAlign: 'center' }}>No projects found</td></tr>}
+            {projects.length === 0 && <tr><td colSpan={5} style={{ textAlign: 'center' }}>{t('Admin.NoProjects')}</td></tr>}
           </tbody>
         </table>
       </div>

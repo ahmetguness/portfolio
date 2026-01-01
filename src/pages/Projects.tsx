@@ -34,6 +34,7 @@ const Projects = () => {
             githubUrl={project.github_url}
             liveUrl={project.live_url}
             projectPhoto={project.image_url}
+            featured={project.featured}
           />
         ))}
         {projects.length === 0 && <p style={{textAlign: 'center'}}>No projects found.</p>}

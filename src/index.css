@@ -479,6 +479,7 @@ b {
   position: relative;
   overflow: hidden;
   /* Keep image radius contained if needed */
+  align-items: center;
 }
 
 .projectBox:hover {

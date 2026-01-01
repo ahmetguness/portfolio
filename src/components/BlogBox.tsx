@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {CgFileDocument} from "react-icons/cg";
+import placeholderImg from '../assets/images/placeholder.png';
 
 interface BlogBoxProps {
   blogPhoto: string;
@@ -18,7 +19,7 @@ const BlogBox: React.FC<BlogBoxProps> = ({blogPhoto, blogName, blogDesc, blogLin
 
   return (
     <div className='projectBox'> 
-        <img className='projectPhoto' src={blogPhoto} alt="Blog display" /> 
+        <img className='projectPhoto' src={blogPhoto || placeholderImg} alt="Blog display" /> 
         <div className='projectContent'>
             {formattedDate && <span className='projectDate'>{formattedDate}</span>}
             <h3 className='projectTitle'>{blogName}</h3>

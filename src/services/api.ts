@@ -156,7 +156,17 @@ const api = {
   checkSession: async (): Promise<{ user: any } | null> => {
       try {
         const res = await fetch(`${API_BASE_URL}/auth/me`, { credentials: 'include' });
-        if (!res.ok) return null;
+        if (!res.ok) {
+            // If token is invalid/expired (401), clean up client state so we don't keep sending it.
+            if (res.status === 401) {
+                console.warn('Session expired. Cleaning up...');
+                localStorage.removeItem('token');
+                localStorage.removeItem('admin_logged_in');
+                // Attempt to clear cookie as well
+                await fetch(`${API_BASE_URL}/auth/logout`, { method: 'POST', credentials: 'include' }).catch(() => {});
+            }
+            return null;
+        }
         return res.json();
       } catch {
           return null;

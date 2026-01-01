@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {FaGithub} from "react-icons/fa";
 import {CgFileDocument} from "react-icons/cg";
+import placeholderImg from '../assets/images/placeholder.png';
 
 interface ProjectBoxProps {
   projectPhoto?: string;
@@ -10,9 +11,10 @@ interface ProjectBoxProps {
   tags: string[];
   githubUrl: string;
   liveUrl?: string;
+  featured?: boolean;
 }
 
-const ProjectBox: React.FC<ProjectBoxProps> = ({projectPhoto, projectName, desc, tags, githubUrl, liveUrl}) => {
+const ProjectBox: React.FC<ProjectBoxProps> = ({projectPhoto, projectName, desc, tags, githubUrl, liveUrl, featured}) => {
   const { t } = useTranslation();
   
   let show = '';
@@ -21,9 +23,28 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({projectPhoto, projectName, desc,
   }
     
   return (
-    <div className='projectBox'> 
+    <div className='projectBox' style={{ position: 'relative' }}> 
+        {/* Featured Badge */}
+        {featured && (
+            <div style={{
+                position: 'absolute',
+                top: '15px',
+                right: '15px',
+                backgroundColor: '#ffd700',
+                color: '#000',
+                padding: '5px 10px',
+                borderRadius: '20px',
+                fontWeight: 'bold',
+                fontSize: '0.8rem',
+                zIndex: 10,
+                boxShadow: '0 2px 5px rgba(0,0,0,0.2)'
+            }}>
+                ★ {t('Projects.Featured')}
+            </div>
+        )}
+
         {/* Placeholder image if none provided */}
-        <img className='projectPhoto' src={projectPhoto || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"} alt="Project display" /> 
+        <img className='projectPhoto' src={projectPhoto || placeholderImg} alt="Project display" /> 
         <div className='projectContent'>
             <h3 className='projectTitle'>{projectName}</h3>
             
