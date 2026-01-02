@@ -5,7 +5,11 @@ import config from '../../config';
 
 const ResumeSettings = () => {
     const { t } = useTranslation();
-    const [urls, setUrls] = useState({ resume_en: '', resume_tr: '' });
+    const [urls, setUrls] = useState({
+        resume_en: '',
+        resume_tr: '',
+        avatar_url: ''
+    });
     const [msg, setMsg] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
@@ -19,7 +23,8 @@ const ResumeSettings = () => {
             const data = await res.json();
             setUrls({
                 resume_en: data.resume_en || '',
-                resume_tr: data.resume_tr || ''
+                resume_tr: data.resume_tr || '',
+                avatar_url: data.avatar_url || ''
             });
         } catch (error) {
             console.error(error);
@@ -78,6 +83,17 @@ const ResumeSettings = () => {
                             type="text"
                             name="resume_tr"
                             value={urls.resume_tr}
+                            onChange={handleChange}
+                            placeholder="https://..."
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label>{t('Admin.AvatarUrl')}</label>
+                        <input
+                            type="text"
+                            name="avatar_url"
+                            value={urls.avatar_url}
                             onChange={handleChange}
                             placeholder="https://..."
                         />

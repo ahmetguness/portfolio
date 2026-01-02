@@ -88,11 +88,12 @@
     "NoProjects": "Proje bulunamadı",
     "TotalBlogs": "Toplam Blog",
     "TotalProjects": "Toplam Proje",
-    "ResumeSettings": "Özgeçmiş Ayarları",
+    "ResumeSettings": "Genel Ayarlar",
     "ResumeEnUrl": "İngilizce Özgeçmiş URL (PDF)",
     "ResumeTrUrl": "Türkçe Özgeçmiş URL (PDF)",
-    "ResumeSaveSuccess": "Özgeçmiş URL'leri başarıyla güncellendi!",
-    "ResumeSaveError": "URL'ler güncellenemedi",
+    "AvatarUrl": "Avatar URL (Görsel)",
+    "ResumeSaveSuccess": "Ayarlar başarıyla güncellendi!",
+    "ResumeSaveError": "Ayarlar güncellenemedi",
     "ResumeSaveLoading": "Kaydediliyor...",
     "ResumeSaveChanges": "Değişiklikleri Kaydet"
   }

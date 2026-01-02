@@ -12,7 +12,7 @@ const Sidebar = () => {
     { path: '/admin/dashboard', icon: <MdDashboard />, label: t('Admin.Dashboard') },
     { path: '/admin/blogs', icon: <MdArticle />, label: t('Admin.Blogs') },
     { path: '/admin/projects', icon: <MdWork />, label: t('Admin.Projects') },
-    { path: '/admin/resume', icon: <MdArticle />, label: t('Navbar.Resume') },
+    { path: '/admin/resume', icon: <MdArticle />, label: t('Admin.ResumeSettings') },
   ];
 
   return (
