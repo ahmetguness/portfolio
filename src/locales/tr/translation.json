@@ -26,7 +26,6 @@
     "WigglesDesc": "Evcil hayvan ebeveynlerinin benzersiz evcil hayvan kimlikleri oluşturmasını, aşı kayıtlarını güvenli bir şekilde saklayıp paylaşmasını ve evcil hayvan profilleri için karekodlar oluşturarak güvenliği artırmasını sağlayan yenilikçi bir evcil hayvan yönetim web uygulaması.",
     "NewsletterDesc": "Mailchimp API kullanılarak yapılan, kayıtların MailChimp hesabından izlenebildiği bir bülten kayıt sitesi. Bu proje API entegrasyonu, ortam değişkenleri ve vercel dağıtımını anlamak için yapılmıştır.",
     "RogFreeDesc": "Belirli hastalıklar veya sağlık sorunları için yedi özel yoga duruşunu gösteren bir web sitesi. Bu, Hackodisha 2.0 adlı 36 saatlik çevrimiçi hackathonda iki kişilik bir ekip tarafından yapılan bir grup projesiydi.",
-    "RogFreeDesc": "Belirli hastalıklar veya sağlık sorunları için yedi özel yoga duruşunu gösteren bir web sitesi. Bu, Hackodisha 2.0 adlı 36 saatlik çevrimiçi hackathonda iki kişilik bir ekip tarafından yapılan bir grup projesiydi.",
     "TindogDesc": "Bu web sitesi, Tinder'ın köpekler için olan bir versiyonunun açılış sayfasıdır. Bootstrap'ı anlamak için yapılmış duyarlı bir web sitesidir. Ayrıca projemi Github'da barındırmayı ve ardından Github sayfalarını kullanarak projeyi dağıtmayı öğrendim.",
     "Featured": "Öne Çıkan"
   },
@@ -45,7 +44,7 @@
   },
   "Footer": {
     "DevelopedBy": "Ahmet Güneş tarafından geliştirilmiştir",
-    "Copyright": "Telif Hakkı &copy; 2024 AG"
+    "Copyright": "Telif Hakkı &copy; 2026 AG"
   },
   "Typed": {
     "Strings": [

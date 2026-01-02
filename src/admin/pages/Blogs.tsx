@@ -42,8 +42,8 @@ const Blogs = () => {
 
     // Validation: enforce Constraint chk_medium_url
     if (currentBlog.mediumUrl && !currentBlog.mediumUrl.startsWith('https://medium.com/')) {
-        alert('Medium URL must start with https://medium.com/');
-        return;
+      alert('Medium URL must start with https://medium.com/');
+      return;
     }
 
     if (currentBlog.id) {
@@ -65,14 +65,14 @@ const Blogs = () => {
         <div className="admin-card">
           <form onSubmit={handleSubmit} className="admin-form">
             <div className="form-group">
-              <label>{t('Admin.Title')} <span style={{color: 'red'}}>*</span></label>
+              <label>{t('Admin.Title')} <span style={{ color: 'red' }}>*</span></label>
               <input
                 value={currentBlog.title || ''}
                 onChange={e => setCurrentBlog({ ...currentBlog, title: e.target.value })}
                 required
               />
             </div>
-            
+
             <div className="form-group">
               <label>{t('Admin.ShortDesc')}</label>
               <textarea
@@ -92,7 +92,7 @@ const Blogs = () => {
             </div>
 
             <div className="form-group">
-              <label>{t('Admin.MediumURL')} <span style={{color: 'red'}}>*</span></label>
+              <label>{t('Admin.MediumURL')} <span style={{ color: 'red' }}>*</span></label>
               <input
                 value={currentBlog.mediumUrl || ''}
                 onChange={e => setCurrentBlog({ ...currentBlog, mediumUrl: e.target.value })}
@@ -101,7 +101,7 @@ const Blogs = () => {
               />
             </div>
 
-             <div className="form-group">
+            <div className="form-group">
               <label>{t('Admin.PublishedAt')}</label>
               <input
                 type="date"
@@ -109,7 +109,7 @@ const Blogs = () => {
                 onChange={e => setCurrentBlog({ ...currentBlog, publishedAt: e.target.value })}
               />
             </div>
-            
+
             <button type="submit" className="admin-btn btn-primary">{t('Admin.Save')}</button>
           </form>
         </div>
@@ -127,7 +127,7 @@ const Blogs = () => {
         <table className="admin-table">
           <thead>
             <tr>
-              <th style={{ width: '80px'}}>{t('Admin.Image')}</th>
+              <th style={{ width: '80px' }}>{t('Admin.Image')}</th>
               <th>{t('Admin.Title')}</th>
               <th>{t('Admin.MediumURL')}</th>
               <th>{t('Admin.PublishedAt')}</th>
@@ -138,16 +138,21 @@ const Blogs = () => {
             {blogs.map(blog => (
               <tr key={blog.id}>
                 <td>
-                  <img src={blog.image || placeholderImg} alt="thumbnail" style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '4px' }} />
+                  <img
+                    src={blog.image || placeholderImg}
+                    onError={(e) => { e.currentTarget.src = placeholderImg; e.currentTarget.onerror = null; }}
+                    alt="thumbnail"
+                    style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '4px' }}
+                  />
                 </td>
                 <td style={{ fontWeight: 600 }}>{blog.title}</td>
                 <td>
-                    <a href={blog.mediumUrl} target="_blank" rel="noreferrer" style={{ color: '#9067C6' }}>{t('Admin.View')}</a>
+                  <a href={blog.mediumUrl} target="_blank" rel="noreferrer" style={{ color: '#9067C6' }}>{t('Admin.View')}</a>
                 </td>
                 <td>
-                    {blog.publishedAt 
-                        ? new Date(blog.publishedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) 
-                        : t('Admin.Draft')}
+                  {blog.publishedAt
+                    ? new Date(blog.publishedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+                    : t('Admin.Draft')}
                 </td>
                 <td>
                   <button onClick={() => handleEdit(blog)} className="admin-btn" style={{ marginRight: '8px', padding: '5px 10px' }}><MdEdit /></button>

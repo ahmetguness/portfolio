@@ -59,7 +59,7 @@ const Projects = () => {
         <div className="admin-card">
           <form onSubmit={handleSubmit} className="admin-form">
             <div className="form-group">
-              <label>{t('Admin.Title')} <span style={{color: 'red'}}>*</span></label>
+              <label>{t('Admin.Title')} <span style={{ color: 'red' }}>*</span></label>
               <input
                 value={currentProject.title || ''}
                 onChange={e => setCurrentProject({ ...currentProject, title: e.target.value })}
@@ -94,8 +94,8 @@ const Projects = () => {
               />
             </div>
 
-             <div className="form-group">
-              <label>{t('Admin.GithubURL')} <span style={{color: 'red'}}>*</span></label>
+            <div className="form-group">
+              <label>{t('Admin.GithubURL')} <span style={{ color: 'red' }}>*</span></label>
               <input
                 value={currentProject.githubUrl || ''}
                 onChange={e => setCurrentProject({ ...currentProject, githubUrl: e.target.value })}
@@ -103,7 +103,7 @@ const Projects = () => {
               />
             </div>
 
-             <div className="form-group">
+            <div className="form-group">
               <label>{t('Admin.LiveURL')}</label>
               <input
                 value={currentProject.liveUrl || ''}
@@ -112,13 +112,13 @@ const Projects = () => {
             </div>
 
             <div className="form-group" style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <input 
-                    type="checkbox" 
-                    checked={currentProject.featured || false} 
-                    onChange={e => setCurrentProject({ ...currentProject, featured: e.target.checked })}
-                    style={{ width: 'auto' }}
-                />
-                <label>{t('Admin.Featured')}</label>
+              <input
+                type="checkbox"
+                checked={currentProject.featured || false}
+                onChange={e => setCurrentProject({ ...currentProject, featured: e.target.checked })}
+                style={{ width: 'auto' }}
+              />
+              <label>{t('Admin.Featured')}</label>
             </div>
 
             <button type="submit" className="admin-btn btn-primary">{t('Admin.Save')}</button>
@@ -134,11 +134,11 @@ const Projects = () => {
         <h2>{t('Admin.Projects')}</h2>
         <button onClick={handleCreate} className="admin-btn btn-primary"><MdAdd /> {t('Admin.NewProject')}</button>
       </div>
-      <div className="admin-card" style={{ overflowX: 'auto'}}>
+      <div className="admin-card" style={{ overflowX: 'auto' }}>
         <table className="admin-table">
           <thead>
             <tr>
-              <th style={{ width: '80px'}}>{t('Admin.Image')}</th>
+              <th style={{ width: '80px' }}>{t('Admin.Image')}</th>
               {/* ... headers */}
               <th>{t('Admin.Title')}</th>
               <th>{t('Admin.Tags')}</th>
@@ -150,25 +150,30 @@ const Projects = () => {
             {projects.map(project => (
               <tr key={project.id}>
                 <td>
-                    <img src={project.image || placeholderImg} alt="thumb" style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '4px' }} />
+                  <img
+                    src={project.image || placeholderImg}
+                    onError={(e) => { e.currentTarget.src = placeholderImg; e.currentTarget.onerror = null; }}
+                    alt="thumb"
+                    style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '4px' }}
+                  />
                 </td>
                 {/* ... rest of row */}
                 <td>
-                    <div style={{ fontWeight: 600 }}>{project.title}</div>
-                    {project.featured && <span style={{ fontSize: '0.8rem', color: '#ffd700', fontWeight: 'bold' }}>★ Featured</span>}
+                  <div style={{ fontWeight: 600 }}>{project.title}</div>
+                  {project.featured && <span style={{ fontSize: '0.8rem', color: '#ffd700', fontWeight: 'bold' }}>★ Featured</span>}
                 </td>
                 <td>
-                    <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
-                        {project.techTags?.map((tag, i) => (
-                            <span key={i} style={{ backgroundColor: '#282c34', padding: '2px 8px', borderRadius: '10px', fontSize: '0.8rem', border: '1px solid #9067C6', color: '#9067C6' }}>{tag}</span>
-                        ))}
-                    </div>
+                  <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
+                    {project.techTags?.map((tag, i) => (
+                      <span key={i} style={{ backgroundColor: '#282c34', padding: '2px 8px', borderRadius: '10px', fontSize: '0.8rem', border: '1px solid #9067C6', color: '#9067C6' }}>{tag}</span>
+                    ))}
+                  </div>
                 </td>
                 <td>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', fontSize: '0.9rem' }}>
-                        {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noreferrer" style={{ color: '#9067C6' }}>Github</a>}
-                        {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer" style={{ color: '#9067C6' }}>Live Demo</a>}
-                    </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', fontSize: '0.9rem' }}>
+                    {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noreferrer" style={{ color: '#9067C6' }}>Github</a>}
+                    {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer" style={{ color: '#9067C6' }}>Live Demo</a>}
+                  </div>
                 </td>
                 <td>
                   <button onClick={() => handleEdit(project)} className="admin-btn" style={{ marginRight: '8px', padding: '5px 10px' }}><MdEdit /></button>
