@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MdSave } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';
+import config from '../../config';
 
 const ResumeSettings = () => {
     const { t } = useTranslation();
@@ -14,7 +15,7 @@ const ResumeSettings = () => {
 
     const fetchSettings = async () => {
         try {
-            const res = await fetch('http://localhost:4001/api/settings');
+            const res = await fetch(`${config.API_BASE_URL}/settings`);
             const data = await res.json();
             setUrls({
                 resume_en: data.resume_en || '',
@@ -34,7 +35,7 @@ const ResumeSettings = () => {
         setIsLoading(true);
         const token = localStorage.getItem('token');
         try {
-            const res = await fetch('http://localhost:4001/api/settings', {
+            const res = await fetch(`${config.API_BASE_URL}/settings`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

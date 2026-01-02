@@ -1,9 +1,11 @@
 
 
+import config from '../../config';
+
 export const authService = {
   login: async (password: string): Promise<boolean> => {
     try {
-      const res = await fetch('http://localhost:4001/api/auth/login', {
+      const res = await fetch(`${config.API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password }),
@@ -25,7 +27,7 @@ export const authService = {
 
   logout: async () => {
     try {
-      await fetch('http://localhost:4001/api/auth/logout', { method: 'POST', credentials: 'include' });
+      await fetch(`${config.API_BASE_URL}/auth/logout`, { method: 'POST', credentials: 'include' });
       localStorage.removeItem('admin_logged_in');
       localStorage.removeItem('token');
     } catch (e) {

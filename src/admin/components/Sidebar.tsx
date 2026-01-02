@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 const Sidebar = () => {
   const { logout } = useAuth();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const navItems = [
     { path: '/admin/dashboard', icon: <MdDashboard />, label: t('Admin.Dashboard') },

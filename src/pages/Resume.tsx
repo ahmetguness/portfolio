@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsDownload } from "react-icons/bs";
+import config from '../config';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
@@ -20,7 +21,7 @@ const Resume = () => {
     // Fetch Resume URLs
     const fetchSettings = async () => {
       try {
-        const response = await fetch('http://localhost:4001/api/settings');
+        const response = await fetch(`${config.API_BASE_URL}/settings`);
         const data = await response.json();
         setResumeUrls({
           en: data.resume_en || '',
@@ -53,7 +54,7 @@ const Resume = () => {
 
     // Use proxy for display to avoid CORS
     if (rawUrl) {
-      setDisplayUrl(`http://localhost:4001/api/proxy?url=${encodeURIComponent(rawUrl)}`);
+      setDisplayUrl(`${config.API_BASE_URL}/proxy?url=${encodeURIComponent(rawUrl)}`);
     } else {
       setDisplayUrl('');
     }

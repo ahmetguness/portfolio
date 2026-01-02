@@ -1,3 +1,6 @@
+
+import config from '../config';
+
 export interface Project {
   id?: string;
   title: string;
@@ -22,13 +25,12 @@ export interface Blog {
     updated_at?: string;
 }
 
-const API_BASE_URL = 'http://localhost:4001/api';
+const API_BASE_URL = config.API_BASE_URL;
 
 const getHeaders = () => {
     const headers: any = { 'Content-Type': 'application/json' };
     const token = localStorage.getItem('token');
     if (token) {
-        // console.log('Attaching Token:', token.substring(0, 10) + '...');
         headers['Authorization'] = `Bearer ${token}`;
     } else {
         console.warn('No token found in localStorage');
@@ -51,17 +53,6 @@ const api = {
   },
 
   createProject: async (project: Project): Promise<Project> => {
-    // Note: tech_tags is array here, but backend expects string or array.
-    // Plan said "convert tech_tags from comma-separated string to text[] in backend".
-    // This implies UI might send string? But Typescript here says string[].
-    // Let's assume UI sends string[] because it's cleaner, but backend handles valid inputs.
-    // Wait, requirement: "tech_tags should be handled as comma-separated input in UI and converted to string[] in backend".
-    // So if the UI sends a string (likely from form input), the API service might need to handle it or pass it as is.
-    // If I type `tech_tags: string | string[]` here it allows flexibility.
-    
-    // For now, I'll stick to string[] as the domain model, but if form sends raw string, we might need a separate Type for Create.
-    // Let's relax the type for creation flexibility or ensure frontend converts.
-    // Actually, backend logs showed I handle both.
     const res = await fetch(`${API_BASE_URL}/projects`, {
       method: 'POST',
       headers: getHeaders(),
