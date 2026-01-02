@@ -1,30 +1,27 @@
-import React from 'react'; 
-import { CgCPlusPlus } from "react-icons/cg";
-import {FaReact, FaGitAlt, FaGithub, FaNpm, FaFigma, FaBootstrap} from "react-icons/fa";
-import {DiNodejs, DiJavascript1} from "react-icons/di";
-import {SiExpress, SiMongodb, SiPostman, SiVercel} from "react-icons/si";
+import React from 'react';
+import { FaReact, FaCogs, FaServer } from "react-icons/fa";
+import { DiJavascript1 } from "react-icons/di";
+import { SiTypescript, SiPostgresql, SiLinux } from "react-icons/si";
+import { TbBrandReactNative, TbSql } from "react-icons/tb";
+
 
 interface SkillsProps {
   skill: string;
 }
 
-const Skills: React.FC<SkillsProps> = ({skill}) => {
-    const icon: Record<string, JSX.Element> = {
-        'C++': <CgCPlusPlus/>,
-        Postman: <SiPostman/>,
-        React: <FaReact/>,
-        Javascript: <DiJavascript1/>,
-        Node : <DiNodejs/>,
-        Express : <SiExpress/>,
-        MongoDb : <SiMongodb/>,
-        Git : <FaGitAlt/>,
-        Github : <FaGithub/>,
-        Npm : <FaNpm/>,
-        Figma : <FaFigma/>,
-        Bootstrap: <FaBootstrap/>,
-        Vercel : <SiVercel/>
-    }
-    
+const Skills: React.FC<SkillsProps> = ({ skill }) => {
+  const icon: Record<string, JSX.Element> = {
+    "React Native": <TbBrandReactNative />,
+    React: <FaReact />,
+    Javascript: <DiJavascript1 />,
+    TypeScript: <SiTypescript />,
+    n8n: <FaCogs />,
+    SQL: <TbSql />,
+    PostgreSQL: <SiPostgresql />,
+    Linux: <SiLinux />,
+    Backend: <FaServer />
+  }
+
   return (
     <div title={skill} className='SkillBox'>
       {icon[skill]}

@@ -2,7 +2,7 @@ import React from 'react';
 import Skills from '../components/Skills';
 import Tilt from 'react-parallax-tilt';
 import Lottie from "lottie-react"
-import Coder from '../assets/lottie/coder.json';
+import CodingBoy from '../assets/lottie/Coding-boy.json';
 import { useTranslation, Trans } from 'react-i18next';
 
 const About = () => {
@@ -20,34 +20,30 @@ const About = () => {
         </div>
 
         <div>
-           <Tilt>
-              <Lottie 
-              className="illustration" 
-              animationData={Coder} 
-              loop={true} 
+          <Tilt>
+            <Lottie
+              className="illustration"
+              animationData={CodingBoy}
+              loop={true}
             />
           </Tilt>
         </div>
 
       </div>
-      
+
       <h1 className='SkillsHeading'>{t('About.SkillsHeading')}</h1>
       <div className='skills'>
-        
+
+        <Skills skill='React Native' />
         <Skills skill='React' />
-        <Skills skill='Node' />
-        <Skills skill='Express' />
-        <Skills skill='MongoDb' />
-        <Skills skill='Git' />
-        <Skills skill='Github' />
+        <Skills skill='TypeScript' />
         <Skills skill='Javascript' />
-        <Skills skill='C++' />
-        <Skills skill='Postman' />
-        <Skills skill='Figma' />
-        <Skills skill='Vercel' />
-        <Skills skill='Npm' />
-        <Skills skill='Bootstrap'/>
-        
+        <Skills skill='Backend' />
+        <Skills skill='SQL' />
+        <Skills skill='PostgreSQL' />
+        <Skills skill='Linux' />
+        <Skills skill='n8n' />
+
       </div>
     </>
   )
