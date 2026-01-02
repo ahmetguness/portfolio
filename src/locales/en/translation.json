@@ -87,6 +87,13 @@
     "NoBlogs": "No blogs found",
     "NoProjects": "No projects found",
     "TotalBlogs": "Total Blogs",
-    "TotalProjects": "Total Projects"
+    "TotalProjects": "Total Projects",
+    "ResumeSettings": "Resume Settings",
+    "ResumeEnUrl": "English Resume URL (PDF)",
+    "ResumeTrUrl": "Turkish Resume URL (PDF)",
+    "ResumeSaveSuccess": "Resume URLs updated successfully!",
+    "ResumeSaveError": "Failed to update URLs",
+    "ResumeSaveLoading": "Saving...",
+    "ResumeSaveChanges": "Save Changes"
   }
 }

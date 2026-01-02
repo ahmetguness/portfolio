@@ -14,6 +14,7 @@ import Login from "./admin/pages/Login";
 import Dashboard from "./admin/pages/Dashboard";
 import AdminBlogs from "./admin/pages/Blogs";
 import AdminProjects from "./admin/pages/Projects";
+import ResumeSettings from "./admin/pages/ResumeSettings";
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
       <Routes>
         {/* Admin Routes */}
         <Route path="/admin/login" element={<Login />} />
-        
+
         <Route path="/admin" element={
           <RequireAdmin>
             <AdminLayout />
@@ -32,16 +33,17 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="blogs" element={<AdminBlogs />} />
           <Route path="projects" element={<AdminProjects />} />
+          <Route path="resume" element={<ResumeSettings />} />
 
         </Route>
 
         {/* Public Routes */}
         <Route element={<PublicLayout />}>
-          <Route path="/" element={<Home/>} />
-          <Route path="/About" element={<About/>}/>
-          <Route path="/Project" element={<Project/>}/>
-          <Route path="/Resume" element={<Resume/>}/>
-          <Route path="/Blog" element={<Blog/>}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Project" element={<Project />} />
+          <Route path="/Resume" element={<Resume />} />
+          <Route path="/Blog" element={<Blog />} />
         </Route>
       </Routes>
     </AuthProvider>

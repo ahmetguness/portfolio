@@ -87,6 +87,13 @@
     "NoBlogs": "Blog bulunamadı",
     "NoProjects": "Proje bulunamadı",
     "TotalBlogs": "Toplam Blog",
-    "TotalProjects": "Toplam Proje"
+    "TotalProjects": "Toplam Proje",
+    "ResumeSettings": "Özgeçmiş Ayarları",
+    "ResumeEnUrl": "İngilizce Özgeçmiş URL (PDF)",
+    "ResumeTrUrl": "Türkçe Özgeçmiş URL (PDF)",
+    "ResumeSaveSuccess": "Özgeçmiş URL'leri başarıyla güncellendi!",
+    "ResumeSaveError": "URL'ler güncellenemedi",
+    "ResumeSaveLoading": "Kaydediliyor...",
+    "ResumeSaveChanges": "Değişiklikleri Kaydet"
   }
 }

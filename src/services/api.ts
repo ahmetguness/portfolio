@@ -22,7 +22,7 @@ export interface Blog {
     updated_at?: string;
 }
 
-const API_BASE_URL = 'http://localhost:4000/api';
+const API_BASE_URL = 'http://localhost:4001/api';
 
 const getHeaders = () => {
     const headers: any = { 'Content-Type': 'application/json' };
