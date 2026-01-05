@@ -1,6 +1,7 @@
 const config = {
-  // Use environment variable if available, otherwise fallback to local dev backend
-  API_BASE_URL: process.env.REACT_APP_API_URL || 'http://localhost:4001/api'
+  // Production'da nginx proxy üzerinden çalışması için relative path
+  // Eğer build sırasında REACT_APP_API_URL verilirse onu kullanır
+  API_BASE_URL: process.env.REACT_APP_API_URL || '/api',
 };
 
 export default config;

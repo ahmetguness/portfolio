@@ -22,8 +22,8 @@ router.post('/', auth_1.default, async (req, res) => {
     try {
         const { title, short_description, image_url, medium_url, published_at } = req.body;
         const query = `
-      INSERT INTO blogs (id, title, short_description, image_url, medium_url, published_at, created_at, updated_at)
-      VALUES (gen_random_uuid(), $1, $2, $3, $4, $5, NOW(), NOW())
+      INSERT INTO blogs (title, short_description, image_url, medium_url, published_at, created_at, updated_at)
+      VALUES ($1, $2, $3, $4, $5, NOW(), NOW())
       RETURNING *;
     `;
         const values = [title, short_description, image_url, medium_url, published_at];

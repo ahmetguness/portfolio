@@ -27,8 +27,8 @@ router.post('/login', (req, res) => {
         const token = jsonwebtoken_1.default.sign({ role: 'admin' }, secret, { expiresIn: '1h' });
         res.cookie('token', token, {
             httpOnly: true,
-            secure: false, // Set to true in production with HTTPS
-            sameSite: 'lax', // Needed for localhost to localhost
+            secure: false,
+            sameSite: 'lax',
             maxAge: 3600000 // 1 hour
         });
         return res.json({ success: true, token });
