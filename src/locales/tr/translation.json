@@ -96,5 +96,9 @@
     "ResumeSaveError": "Ayarlar güncellenemedi",
     "ResumeSaveLoading": "Kaydediliyor...",
     "ResumeSaveChanges": "Değişiklikleri Kaydet"
+  },
+  "Chatbot": {
+    "Greeting": "Merhaba, hoş geldiniz!\nSorularınızı yanıtlayabilir ya da Ahmet Güneş’e bir mesaj iletmenize yardımcı olabilirim.\nMail göndermek için mesajınızın sonuna 'gönder' yazmanız yeterlidir.",
+    "Placeholder": "Bir mesaj yazın..."
   }
 }

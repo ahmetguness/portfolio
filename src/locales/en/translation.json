@@ -96,5 +96,9 @@
     "ResumeSaveError": "Failed to update settings",
     "ResumeSaveLoading": "Saving...",
     "ResumeSaveChanges": "Save Changes"
+  },
+  "Chatbot": {
+    "Greeting": "Hello, welcome! I can answer your questions or help you send a message to Ahmet Güneş. To send an email, simply write 'send' at the end of your message.",
+    "Placeholder": "Type a message..."
   }
 }
