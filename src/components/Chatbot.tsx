@@ -77,7 +77,7 @@ const Chatbot = () => {
         setIsLoading(true);
 
         try {
-            const response = await fetch('https://gunessh.online/webhook/023640c7-ec95-4884-b429-79bc9b78d84a', {
+            const response = await fetch('https://gunessh.online/webhook/c03998ae-6943-473d-92a2-aaca85bce617', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -85,26 +85,42 @@ const Chatbot = () => {
                 body: JSON.stringify({ message: userMessage }),
             });
 
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+            console.log('Response status:', response.status);
+            console.log('Response headers:', Array.from(response.headers.entries()));
 
-            const data = await response.json();
+            const rawText = await response.text();
+            console.log('Raw response text:', rawText);
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${rawText}`);
+            }
 
             let botResponse = "I received your message.";
 
-            if (typeof data === 'string') {
-                botResponse = data;
-            } else if (data.output) {
-                botResponse = data.output;
-            } else if (data.message) {
-                botResponse = data.message;
-            } else if (data.text) {
-                botResponse = data.text;
-            } else if (data.response) {
-                botResponse = data.response;
-            } else {
-                botResponse = JSON.stringify(data);
+            try {
+                const data = JSON.parse(rawText);
+                console.log('Parsed JSON data:', data);
+
+                if (typeof data === 'string') {
+                    botResponse = data;
+                } else if (Array.isArray(data) && data.length > 0) {
+                    // n8n often returns an array of objects
+                    const first = data[0];
+                    botResponse = first.output || first.message || first.text || first.response || JSON.stringify(first);
+                } else if (data.output) {
+                    botResponse = data.output;
+                } else if (data.message) {
+                    botResponse = data.message;
+                } else if (data.text) {
+                    botResponse = data.text;
+                } else if (data.response) {
+                    botResponse = data.response;
+                } else {
+                    botResponse = JSON.stringify(data);
+                }
+            } catch (parseError) {
+                console.log('Response is not JSON, using as plain text');
+                botResponse = rawText || "I received your message.";
             }
 
             setMessages(prev => [...prev, { text: botResponse, sender: 'bot' }]);
