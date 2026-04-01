@@ -16,7 +16,7 @@ router.post('/login', (req, res) => {
         console.error("Missing ADMIN_SALT or ADMIN_HASH in .env");
         return res.status(500).json({ msg: 'Server misconfiguration' });
     }
-    const verifyHash = crypto_1.default.pbkdf2Sync(password, salt, 1000, 64, 'sha512').toString('hex');
+    const verifyHash = crypto_1.default.pbkdf2Sync(password, salt, 100000, 64, 'sha512').toString('hex');
     if (verifyHash === hash) {
         // Use proper typing/check for secret
         const secret = process.env.JWT_SECRET;

@@ -9,7 +9,9 @@ dotenv_1.default.config();
 const auth = (req, res, next) => {
     const verifyToken = (token) => {
         try {
-            return jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET || 'secret');
+            if (!process.env.JWT_SECRET)
+                throw new Error("CRITICAL: JWT_SECRET setup missing in .env");
+            return jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
         }
         catch (e) {
             console.error('JWT Verification Error:', e.message);

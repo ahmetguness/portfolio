@@ -13,7 +13,7 @@ const blogs_1 = __importDefault(require("./routes/blogs"));
 const settings_1 = __importDefault(require("./routes/settings"));
 const proxy_1 = __importDefault(require("./routes/proxy"));
 const db_1 = __importDefault(require("./db"));
-dotenv_1.default.config();
+dotenv_1.default.config({ quiet: true });
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 4001;
 // Middleware

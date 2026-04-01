@@ -12,6 +12,19 @@ router.get('/', async (req, res) => {
         return res.status(400).json({ error: 'Missing or invalid "url" query parameter' });
     }
     try {
+        const parsedUrl = new URL(url);
+        const allowedDomains = [
+            'medium.com', 'miro.medium.com', 'cdn-images-1.medium.com', 'api.medium.com',
+            'github.com', 'raw.githubusercontent.com', 'avatars.githubusercontent.com'
+        ];
+        if (!allowedDomains.some(domain => parsedUrl.hostname === domain || parsedUrl.hostname.endsWith(`.${domain}`))) {
+            return res.status(403).json({ error: 'Proxying to this domain is strictly forbidden.' });
+        }
+    }
+    catch (err) {
+        return res.status(400).json({ error: 'Invalid URL format provided.' });
+    }
+    try {
         const response = await axios_1.default.get(url, {
             responseType: 'stream',
             headers: {
