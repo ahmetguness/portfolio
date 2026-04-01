@@ -14,7 +14,8 @@ router.get('/', async (req: Request, res: Response) => {
         const parsedUrl = new URL(url);
         const allowedDomains = [
             'medium.com', 'miro.medium.com', 'cdn-images-1.medium.com', 'api.medium.com',
-            'github.com', 'raw.githubusercontent.com', 'avatars.githubusercontent.com'
+            'github.com', 'raw.githubusercontent.com', 'avatars.githubusercontent.com',
+            'dropbox.com', 'dl.dropboxusercontent.com', 'drive.google.com', 'docs.google.com'
         ];
         if (!allowedDomains.some(domain => parsedUrl.hostname === domain || parsedUrl.hostname.endsWith(`.${domain}`))) {
             return res.status(403).json({ error: 'Proxying to this domain is strictly forbidden.' });
