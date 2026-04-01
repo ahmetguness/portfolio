@@ -20,7 +20,7 @@ const Chatbot = () => {
         if (messages.length === 0) {
             setMessages([{ text: t('Chatbot.Greeting'), sender: 'bot' }]);
         }
-    }, [t]);
+    }, [t, messages.length]);
 
     // Scroll to bottom functionality
     const scrollToBottom = () => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Topbar from '../components/Topbar';
@@ -7,8 +7,6 @@ import nightsky from "../../assets/lottie/night-sky.json";
 import '../admin.css';
 
 const AdminLayout = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
   return (
     <div className="admin-layout">
       {/* Background Effects */}

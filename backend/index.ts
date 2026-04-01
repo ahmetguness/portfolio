@@ -10,7 +10,7 @@ import proxyRoutes from './routes/proxy';
 import db from './db';
 
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 const app = express();
 const PORT = process.env.PORT || 4001;

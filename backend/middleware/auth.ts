@@ -11,7 +11,8 @@ export interface AuthRequest extends Request {
 const auth = (req: AuthRequest, res: Response, next: NextFunction) => {
   const verifyToken = (token: string) => {
     try {
-      return jwt.verify(token, process.env.JWT_SECRET || 'secret');
+      if (!process.env.JWT_SECRET) throw new Error("CRITICAL: JWT_SECRET setup missing in .env");
+      return jwt.verify(token, process.env.JWT_SECRET);
     } catch (e: any) {
       console.error('JWT Verification Error:', e.message);
       return null;

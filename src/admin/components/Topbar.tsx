@@ -1,11 +1,10 @@
 import React from 'react';
-import { useAuth } from '../context/AuthContext';
+
 import { MdPerson } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';
 
 const Topbar = () => {
-  const { logout } = useAuth();
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
