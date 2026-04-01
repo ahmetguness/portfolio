@@ -10,13 +10,13 @@
     "Hi": "Hi There!",
     "Im": "I'M",
     "IntroHeading": "Brief <b>introduction</b>",
-    "IntroParagraph1": "I enjoy turning ideas into real products instead of leaving them as code on a screen. I like building things end-to-end, from mobile applications to backend services that actually solve problems.",
-    "IntroParagraph2": "I develop mobile applications using <b>React Native</b> and <b>TypeScript</b>. I’m also interested in the backend side, working with APIs, data flow, and system communication.",
-    "IntroParagraph3": "I set up a small self-hosted environment by turning an old PC at home into a <b>Linux server</b>. I’m also interested in <b>networking</b>, <b>ESP32</b>, and automation tools like <b>n8n</b>, and I enjoy connecting systems and automating workflows."
+    "IntroParagraph1": "I enjoy turning ideas into real products. I build things end-to-end, from mobile applications to backend services.",
+    "IntroParagraph2": "I develop mobile apps with <b>React Native</b> and <b>TypeScript</b>, and work on APIs and system integrations on the backend side.",
+    "IntroParagraph3": "I run my own self-hosted <b>Linux server</b> environment. I love exploring new technologies and applying what I learn to real projects."
   },
   "About": {
     "Heading": "Get to <b>know</b> me!",
-    "Paragraph": "Hi, my name is <b>Ahmet Güneş</b> and I’m based in <b>İzmir, Turkey</b>. I’m a <b>Computer Engineering graduate</b> with a focus on building mobile applications using <b>React Native</b> and <b>TypeScript</b>, while also being strongly interested in backend systems and infrastructure. I completed mobile and software development internships at <b>Akbank</b>, <b>IsTechSoft</b>, and <b>Samsun Atakum Municipality</b>, where I gained hands-on experience working on real-world applications and development workflows. Beyond application development, I enjoy experimenting with systems by turning an old PC at home into a small <b>Linux server</b>, and exploring <b>networking</b>, <b>automation with n8n</b>, and hardware projects like <b>ESP32</b>. I like building systems where different components communicate reliably and efficiently. I’m open to new opportunities, collaborations, and projects where I can contribute, learn, and grow. Feel free to reach out — you can find my links in the footer.",
+    "Paragraph": "Hi, my name is <b>Ahmet Güneş</b>. I'm a <b>Computer Engineering graduate</b> with a focus on building mobile applications using <b>React Native</b> and <b>TypeScript</b>, while also being strongly interested in backend systems and infrastructure. I completed mobile and software development internships at <b>Akbank</b>, <b>IsTechSoft</b>, and <b>Samsun Atakum Municipality</b>, where I gained hands-on experience working on real-world applications and development workflows. I'm open to new opportunities, collaborations, and projects where I can contribute, learn, and grow. Feel free to reach out — you can find my links in the footer.",
     "SkillsHeading": "Professional Skillset"
   },
   "Projects": {
@@ -49,11 +49,10 @@
   "Typed": {
     "Strings": [
       "Backend Developer",
-      "Mobile Application Developer",
+      "React Native Developer",
       "Full-Stack Developer",
-      "ESP32 Prototyper",
-      "Embedded Systems Beginner",
-      "DevOps-Inclined Developer"
+      "Linux Server Administrator",
+      "API Developer"
     ]
   },
   "Admin": {
@@ -98,7 +97,7 @@
     "ResumeSaveChanges": "Save Changes"
   },
   "Chatbot": {
-    "Greeting": "Hello, welcome! I can answer your questions or help you send a message to Ahmet Güneş. To send an email, simply write 'send' at the end of your message.",
+    "Greeting": "Hello, welcome!\nI'd be happy to answer your questions.",
     "Placeholder": "Type a message..."
   }
 }
